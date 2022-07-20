@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import Navbar from './Navbar'
 
-import Header from "./header"
-import "./layout.css"
+export const CursorContext = React.createContext('dog')
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,34 +23,36 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [cursor, setCursor] = React.useState(
+    localStorage.getItem('cursor') || 'default'
+  )
+
+    console.log(cursor, cursor === 'default')
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+    <CursorContext.Provider value={{ cursor, setCursor: (option) => {
+      localStorage.setItem('cursor', option)
+      setCursor(option)
+    } }}>
       <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
+        style={ cursor !== 'default' ? {
+          cursor: `url(svgs/${cursor}.svg) 32 16, auto`
+        } : {}}
+        className='bg-gray-900 text-white flex flex-col min-h-screen'
       >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <Navbar />
+        <div className='flex flex-col content-center grow'>
+          {children}
+        </div>
+        <footer className='pt-[3rem] text-gray-300 text-center  my-8'>
+          © {new Date(Date.now()).getFullYear()} • because every website needs a footer
         </footer>
       </div>
-    </>
+    </CursorContext.Provider>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout
