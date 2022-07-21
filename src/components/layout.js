@@ -14,7 +14,7 @@ export const CursorContext = React.createContext('dog')
 const Layout = ({ children }) => {
 
   const [cursor, setCursor] = React.useState(
-    window.localStorage.getItem('cursor') || 'default'
+    window?.localStorage?.getItem('cursor') || 'default'
   )
 
   return (
