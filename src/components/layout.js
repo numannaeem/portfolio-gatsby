@@ -27,7 +27,6 @@ const Layout = ({ children }) => {
     localStorage.getItem('cursor') || 'default'
   )
 
-    console.log(cursor, cursor === 'default')
   return (
     <CursorContext.Provider value={{ cursor, setCursor: (option) => {
       localStorage.setItem('cursor', option)
@@ -35,7 +34,7 @@ const Layout = ({ children }) => {
     } }}>
       <div
         style={ cursor !== 'default' ? {
-          cursor: `url(svgs/${cursor}.svg) 32 16, auto`
+          cursor: `url(svgs/${cursor}.svg) 16 16, auto`
         } : {}}
         className='bg-gray-900 text-white flex flex-col min-h-screen'
       >

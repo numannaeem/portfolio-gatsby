@@ -39,7 +39,63 @@
   transition: transform 0.25s ease-out;
 }
 
+.card-group:hover :not(.repo-link:hover) .link-grow:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
 .link-grow:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.button-grow {
+  position: relative;
+}
+.button-grow:hover {
+  color: #111827;
+  z-index: 2;
+}
+
+.button-grow:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.button-grow:hover:after {
+  z-index: -2;
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.button-left:after {
+  right: 0;
+  transform-origin: bottom left;
+}
+
+.button-left:hover:after {
+  transform-origin: bottom right;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #111827;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-image: linear-gradient(180deg, #ff9285 40%, #ff9285 100%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
 }

@@ -2,14 +2,15 @@ import { Link } from 'gatsby'
 import PropTypes from "prop-types"
 import React from 'react'
 
-const CustomLink = ({to, children, target}) => {
+const CustomLink = ({to, children, target, classes, className}) => {
 	return (
-		<Link target={target} className='link-grow text-tertiary after:bg-tertiary' to={to}>{children}</Link>
+		<Link target={target} className={`${className} link-grow ${classes}`} to={to}>{children}</Link>
 	)
 }
 
 CustomLink.defaultProps = {
-	target: "_self"
+	target: "_self",
+	classes: 'text-tertiary after:bg-tertiary'
 }
 
 CustomLink.propTypes = {
