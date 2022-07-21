@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 85 51.611" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#f4ff91" stroke-width="0mm" fill="#ffa099" style="stroke:#f4ff91;stroke-width:0mm;fill:#ffa099"/>
-  <path style="fill: rgba(255, 255, 255, 0); stroke: rgb(255, 160, 153); stroke-linecap: round; stroke-linejoin: round; stroke-width: 6px;" d="M 10 47.5 L 10 16.673 C 10.778 6.501 23.763 0.885 33.375 6.565 C 37.242 8.848 39.686 12.581 40 16.673 L 39.958 32.037" bx:origin="0.5 0.5"/>
-  <ellipse style="stroke: rgb(255, 160, 153); fill: rgb(255, 160, 153);" cx="6.5" cy="5" rx="3.5" ry="3.5"/>
-  <path style="fill: rgba(255, 255, 255, 0); stroke: rgb(255, 160, 153); stroke-linecap: round; stroke-linejoin: round; stroke-width: 6px;" d="M 39.981 46.698 L 39.981 15.871 C 40.759 5.699 53.744 0.084 63.356 5.764 C 67.223 8.048 69.667 11.779 69.981 15.871 C 70.005 14.836 70.02 29.322 69.939 32.879" transform="matrix(-1, 0, 0, -1, 109.981049, 50.198383)" bx:origin="0.5 0.5"/>
-  <ellipse style="stroke: rgb(255, 160, 153); fill: rgb(255, 160, 153);" cx="-73" cy="-46.5" rx="3.5" ry="3.5" transform="matrix(-1, 0, 0, -1, 0, 0)"/>
-</svg>
