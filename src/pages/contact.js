@@ -7,7 +7,7 @@ import Seo from '../components/seo'
 const socials = () => {
 	const links = [
 		{
-			to: 'mailto:numan.naeem9@gmail.com',
+			to: 'mailto:dev@numxn.me',
 			classes: 'text-sky-300 after:bg-sky-300',
 			name: 'Email'
 		},

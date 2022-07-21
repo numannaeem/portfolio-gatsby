@@ -6,16 +6,16 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 
 const About = () => {
-  function ordinal_suffix_of (i) {
+  const superscript = i => {
     var j = i % 10,
       k = i % 100
-    if (j == 1 && k != 11) {
+    if (j === 1 && k !== 11) {
       return 'st'
     }
-    if (j == 2 && k != 12) {
+    if (j === 2 && k !== 12) {
       return 'nd'
     }
-    if (j == 3 && k != 13) {
+    if (j === 3 && k !== 13) {
       return 'rd'
     }
     return 'th'
@@ -59,16 +59,16 @@ const About = () => {
         <div className='text-lg'>
           <hr className='mb-9 border-gray-600/50' />
           <h3 className='mt-7 mb-4 text-2xl font-semibold'>
-            a <sup className='text-xl'>very</sup> brief history
+            a (very) brief history
           </h3>
           <ul className='list-disc space-y-2 list-inside text-lg'>
             <li>
-              Born on the 23rd of February, 2001, in Riyadh, Saudi Arabia 🇸🇦.
+              Born on the 23<sup>rd</sup> of February, 2001, in Riyadh, Saudi Arabia 🇸🇦.
             </li>
             <li>
               Lived in Saudi Arabia for the next 15 years. Changed schools a few
               times, but spent the most time at{' '}
-              <CustomLink to='https://alyasmin.edu.sa/'>
+              <CustomLink target="_blank" to='https://alyasmin.edu.sa/'>
                 Al&#8209;Yasmin&nbsp;Int'l&nbsp;School,&nbsp;Riyadh
               </CustomLink>
               .
@@ -83,7 +83,7 @@ const About = () => {
                 day: '2-digit',
                 month: 'long'
               })}`}
-              <sup>{ordinal_suffix_of(new Date(Date.now()).getDate())}</sup>,{' '}
+              <sup>{superscript(new Date(Date.now()).getDate())}</sup>,{' '}
               {new Date(Date.now()).getFullYear()}, and I'm in my fourth year of
               CS engineering at{' '}
               <CustomLink target={'_blank'} to='https://nmamit.nitte.edu.in'>

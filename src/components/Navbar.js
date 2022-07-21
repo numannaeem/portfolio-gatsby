@@ -23,7 +23,7 @@ const Navbar = () => {
       onDoubleClick={() => setSelectorHidden(p => !p)}
       className={`${
         offset > 30 ? 'bg-gray-700/40 shadow-xl ' : ''
-      } md:py-4 overflow-hidden transition-colors select-none sticky top-0 backdrop-blur-lg z-50  flex items-center px-5 py-7 justify-between`}
+      } md:py-4 overflow-hidden transition-colors select-none sticky top-0 backdrop-blur-xl z-50  flex items-center px-5 py-7 justify-between`}
     >
       <Link
         to='/'

@@ -8,6 +8,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import Navbar from './Navbar'
+import baseUrl from '../baseUrl'
 
 export const CursorContext = React.createContext('dog')
 
@@ -33,7 +34,7 @@ const Layout = ({ children }) => {
         style={
           cursor !== 'default'
             ? {
-                cursor: `url(svgs/${cursor}.svg) 16 16, auto`
+                cursor: `url(${baseUrl}/svgs/${cursor}.svg) 16 16, auto`
               }
             : {}
         }

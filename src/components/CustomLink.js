@@ -3,8 +3,14 @@ import PropTypes from "prop-types"
 import React from 'react'
 
 const CustomLink = ({to, children, target, classes, className}) => {
+	if(target === "_blank") {
+		console.log('here');
+		return (
+			<a target={target} className={`${className || ''} link-grow ${classes}`} href={to}>{children}</a>
+		)
+	}
 	return (
-		<Link target={target} className={`${className} link-grow ${classes}`} to={to}>{children}</Link>
+		<Link target={target} className={`${className || ''} link-grow ${classes}`} to={to}>{children}</Link>
 	)
 }
 
