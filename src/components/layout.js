@@ -7,24 +7,14 @@
 
 import * as React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql, Link } from 'gatsby'
 import Navbar from './Navbar'
 
 export const CursorContext = React.createContext('dog')
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   const [cursor, setCursor] = React.useState(
-    localStorage.getItem('cursor') || 'default'
+    window.localStorage.getItem('cursor') || 'default'
   )
 
   return (

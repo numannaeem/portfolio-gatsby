@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `numxn`,
-    description: `Personal portfolio website for Numan Naeem, created using GatsbyJS.`,
+    description: `Personal portfolio website for Numan, created using Gatsby.js and Contentful CMS.`,
     author: `@numannaeem`,
     siteUrl: `https://numxn.gatsbyjs.io/`,
   },
