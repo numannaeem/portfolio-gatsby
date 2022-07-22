@@ -43,7 +43,7 @@ const socials = () => {
 						</li>
 					))}
         </ul>
-        <button className='rounded-lg text-lg font-semibold border-2 w-fit py-2 px-3 transition-colors  hover:text-gray-900 text-primary button-grow after:bg-primary border-primary' onClick={() => window.open('./resources/resume.pdf')}>View Résumé</button>
+        <button className='rounded-lg text-lg font-semibold border-2 w-fit py-2 px-3 transition-colors  hover:text-gray-900 text-primary button-grow after:bg-primary border-primary' onClick={() => window.open('./resources/Numan_Naeem_Resume.pdf')}>View Résumé</button>
         <div className='mt-auto flex justify-between'>
           <ArrowBtn dir={"left"} />
           <ArrowBtn dir={"right"} to='/about' />
