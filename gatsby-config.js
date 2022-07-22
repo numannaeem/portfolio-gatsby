@@ -5,9 +5,9 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `numxn`,
-    description: `Personal portfolio website for Numan, created using Gatsby.js and Contentful CMS.`,
+    description: `Hi! I'm Numan, a 21 year-old web developer from Kerala, India. Check out my portfolio!`,
     author: `@numannaeem`,
-    siteUrl: `https://numxn.gatsbyjs.io/`,
+    siteUrl: `https://numxn.me`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,10 +24,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `numxn`,
+        short_name: `numxn`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#111827`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,

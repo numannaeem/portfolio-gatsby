@@ -12,13 +12,12 @@ import baseUrl from '../baseUrl'
 
 export const CursorContext = React.createContext('dog')
 
-const isBrowser = typeof window !== 'undefined'
-
 const Layout = ({ children }) => {
   
-  const [cursor, setCursor] = React.useState(
-    isBrowser ? window.localStorage.getItem('cursor') || 'default' : 'default'
-  )
+  const [cursor, setCursor] = React.useState()
+  React.useEffect(() => {
+    setCursor(localStorage.getItem('cursor') || 'default')
+  },[])
 
   return (
     <CursorContext.Provider

@@ -29,7 +29,7 @@ const Navbar = () => {
         to='/'
         className='drop-shadow-lg will-change-transform hover:rotate-180 ease-in-out transition delay-300 duration-[400ms] text-3xl text-white font-bold'
       >
-        <img className='' width={100} src='/svgs/logo.svg' />
+        <img alt="logo" className='' width={100} src='/svgs/logo.svg' />
       </Link>
       <div className={`${selectorHidden && 'opacity-0 translate-x-[100%]' } duration-300 transition-all will-change-transform cursor-default hidden md:flex flex-col group items-center mt-3`}>
         <div className='flex'>
