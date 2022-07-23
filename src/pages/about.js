@@ -7,17 +7,11 @@ import Seo from '../components/seo'
 
 const About = () => {
   const superscript = i => {
-    var j = i % 10,
+    let j = i % 10,
       k = i % 100
-    if (j === 1 && k !== 11) {
-      return 'st'
-    }
-    if (j === 2 && k !== 12) {
-      return 'nd'
-    }
-    if (j === 3 && k !== 13) {
-      return 'rd'
-    }
+    if (j === 1 && k !== 11) return 'st'
+    if (j === 2 && k !== 12) return 'nd'
+    if (j === 3 && k !== 13) return 'rd'
     return 'th'
   }
 
@@ -41,11 +35,12 @@ const About = () => {
                 A 21 year-old web developer interested in all things coding.
                 Currently pursuing my Bachelor's degree in CS Engineering.
                 Though I'm comfortable building full-stack applications for the
-                web, my primary interest is in UI Design and experimenting with the
-                latest trends in front-end development.
+                web, my primary interest is in UI Design and experimenting with
+                the latest trends in front-end development.
               </p>
               <p className='mt-5'>
-                When I'm bored, you'll find me playing Chess, taking photos of the sky, or watching the most random videos on YouTube.
+                When I'm bored, you'll find me playing Chess, taking photos of
+                the sky, or watching the most random videos on YouTube.
               </p>
             </div>
           </div>
@@ -57,12 +52,13 @@ const About = () => {
           </h3>
           <ul className='list-disc space-y-2 list-inside text-lg'>
             <li>
-              Born on the 23<sup>rd</sup> of February, 2001, in Riyadh, Saudi Arabia 🇸🇦.
+              Born on the 23<sup>rd</sup> of February, 2001, in Riyadh, Saudi
+              Arabia 🇸🇦.
             </li>
             <li>
               Lived in Saudi Arabia for the next 15 years. Changed schools a few
               times, but spent the most time at{' '}
-              <CustomLink target="_blank" to='https://alyasmin.edu.sa/'>
+              <CustomLink target='_blank' to='https://alyasmin.edu.sa/'>
                 Al&#8209;Yasmin&nbsp;Int'l&nbsp;School,&nbsp;Riyadh
               </CustomLink>
               .
@@ -73,10 +69,10 @@ const About = () => {
             </li>
             <li>
               It's{' '}
-              {`${new Date(Date.now()).toLocaleString('default', {
+              {new Date(Date.now()).toLocaleString('default', {
                 day: '2-digit',
                 month: 'long'
-              })}`}
+              })}
               <sup>{superscript(new Date(Date.now()).getDate())}</sup>,{' '}
               {new Date(Date.now()).getFullYear()}, and I'm in my fourth year of
               CS engineering at{' '}
