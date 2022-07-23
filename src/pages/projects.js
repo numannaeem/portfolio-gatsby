@@ -67,8 +67,8 @@ const Projects = ({ data }) => {
     <Layout>
       <Seo title='projects' />
       <div className='grow gap-10 mt-5 px-5 flex flex-col self-center w-full md:w-5/6 lg:w-3/4 xl:w-2/3'>
-        <div className='flex flex-col gap-6 md:gap-8'>
-          <h2 className='text-xl mb-3'>
+        <div className='flex flex-col gap-6 md:gap-10'>
+          <h2 className='text-xl mb-3 md:mb-0'>
             A <sup className='text-base'>limited</sup> selection of projects
             that I've enjoyed working on. To see more, head over to my{' '}
             <CustomLink
@@ -83,21 +83,21 @@ const Projects = ({ data }) => {
           {data.allContentfulProject.nodes.map((node, i) => (
             <div
               key={i}
-              className='flex flex-col gap-2 md:gap-4 md:mb-3 rounded-2xl'
+              className={`flex flex-col md:gap-3 md:mb-3 border-2 ${i%3 === 0 ? 'border-primary' : i%3 === 1 ? 'border-tertiary' : 'border-secondary'} overflow-hidden md:border-0 md:overflow-visible rounded-xl`}
             >
-              <div className='flex flex-col gap-4 bg-gray-700/40 p-4 border-2 border-tertiary rounded-lg '>
+              <div className='flex flex-col gap-4 bg-gray-700/40 p-4 md:border-2 border-tertiary md:rounded-lg '>
                 <div className={`flex flex-wrap gap-2 justify-start items-end`}>
                   <CustomLink
                     target={'_blank'}
                     to={node.link}
-                    classes={'text-tertiary after:bg-tertiary'}
-                    className='font-bold w-fit text-2xl md:text-3xl'
+                    classes={`${i%3 === 0 ? 'text-primary after:bg-primary' : i%3 === 1 ? 'text-tertiary after:bg-tertiary' : 'text-secondary after:bg-secondary'}`}
+                    className='font-bold w-fit text-2xl md:text-3xl md:text-tertiary md:after:bg-tertiary'
                   >
                     {node.title}
                   </CustomLink>
                   <button
                     title='Repo Link'
-                    className='repo-link z-10 md:ml-2 w-fit text-gray-300 text-2xl hover:-translate-y-1  transition-transform'
+                    className='repo-link z-10 ml-2 w-fit text-gray-300 text-2xl hover:-translate-y-1  transition-transform'
                     onClick={e => {
                       e.stopPropagation()
                       window.open(node.repoLink, '_blank')
@@ -128,26 +128,19 @@ const Projects = ({ data }) => {
               <div
                 className={`flex flex-col ${
                   i % 2 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }  gap-2 md:gap-4`}
+                }  md:gap-3`}
               >
-                <div className='shrink-0 border-primary border-2 self-stretch flex flex-col w-full md:w-5/12 rounded-lg  overflow-hidden'>
+                <div className='shrink-0 border-primary md:border-2 self-stretch flex flex-col w-full md:w-5/12 md:rounded-lg  overflow-hidden'>
                   <GatsbyImage
                     className='h-full'
                     alt={node.title}
                     image={node.image.gatsbyImageData}
                   />
                 </div>
-                <div className='p-4 text-justify text-lg leading-normal border-secondary border-2 bg-gray-700/50 rounded-lg md:p-4 flex-col'>
+                <div className='p-4 text-justify text-lg leading-normal border-secondary md:border-2 bg-gray-700/50 md:rounded-lg md:p-4 flex-col'>
                   <p>{node.description.description}</p>
                 </div>
               </div>
-              <hr
-                className={`${
-                  i < data.allContentfulProject.nodes.length - 1
-                    ? 'block'
-                    : 'hidden'
-                } md:hidden mt-4 border-gray-500/50`}
-              />
             </div>
           ))}
         </div>
