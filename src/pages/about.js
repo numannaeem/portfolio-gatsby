@@ -38,20 +38,14 @@ const About = () => {
             <h1 className=' font-bold'>Numan Naeem.</h1>
             <div className='text-lg mt-7 text-white'>
               <p>
-                A 21-year old web developer interested in all things coding.
+                A 21 year-old web developer interested in all things coding.
                 Currently pursuing my Bachelor's degree in CS Engineering.
                 Though I'm comfortable building full-stack applications for the
-                web, my primary interest is in UI Design and exploring the
-                latest trends in front-end development. This website you're on
-                right now was built using{' '}
-                <CustomLink target={'_blank'} to='https://gatsbyjs.org'>
-                  GatsbyJS
-                </CustomLink>
-                !
+                web, my primary interest is in UI Design and experimenting with the
+                latest trends in front-end development.
               </p>
               <p className='mt-5'>
-                When I'm bored, you'll find me playing Chess, listening to
-                music, or watching the most random videos on YouTube.
+                When I'm bored, you'll find me playing Chess, taking photos of the sky, or watching the most random videos on YouTube.
               </p>
             </div>
           </div>

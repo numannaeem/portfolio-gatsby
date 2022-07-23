@@ -3,28 +3,33 @@ import ArrowBtn from '../components/ArrowBtn'
 import CustomLink from '../components/CustomLink'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
+import {FaRegEnvelope, FaLinkedinIn, FaGithub, FaInstagram} from 'react-icons/fa'
 
 const socials = () => {
 	const links = [
 		{
 			to: 'mailto:dev@numxn.me',
 			classes: 'text-sky-300 after:bg-sky-300',
-			name: 'Email'
+			name: 'dev@numxn.me',
+      icon: <FaRegEnvelope />
 		},
 		{
       to: 'https://instagram.com/num4n_',
       classes: 'text-purple-300 after:bg-purple-300',
-      name: 'Instagram'
+      name: '@num4n_',
+      icon: <FaInstagram />
     },
     {
       to: 'https://linkedin.com/in/numxn',
       classes: 'text-blue-300 after:bg-blue-300',
-      name: 'LinkedIn'
+      name: 'Numan Naeem',
+      icon: <FaLinkedinIn />
     },
     {
       to: 'https://github.com/numannaeem',
       classes: 'text-gray-300 after:bg-gray-300',
-      name: 'Github'
+      name: 'numannaeem',
+      icon: <FaGithub />
     },
   ]
 
@@ -38,8 +43,8 @@ const socials = () => {
         </h2>
         <ul className='font-semibold text-base'>
           {links.map(link => (
-						<li key={link.name} className="text-lg mb-2">
-							<CustomLink target={"_blank"} to={link.to} classes={link.classes} >{link.name}</CustomLink>
+						<li key={link.name} className=" text-lg mb-2">
+							<CustomLink target={"_blank"} className="flex gap-2 items-center w-fit" to={link.to} classes={link.classes}>{link.icon}{link.name}</CustomLink>
 						</li>
 					))}
         </ul>

@@ -28,10 +28,8 @@ module.exports = {
       }
     },
     fontFamily: {
-      nav: ["CinzelDecorative-Regular"],
-      heading: ["Playfair"],
-      subheading: ["Playfair"],
-      body: ["Poppins-Light"],
+      sans: "Outfit, ui-sans-serif, system-ui",
+      link: "Sacramento, cursive"
     }
   },
   plugins: [],

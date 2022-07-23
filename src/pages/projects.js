@@ -1,4 +1,4 @@
-import { graphql, navigate } from 'gatsby'
+import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import CustomLink from '../components/CustomLink'
 import React from 'react'
@@ -6,7 +6,6 @@ import ArrowBtn from '../components/ArrowBtn'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { FaGithub } from 'react-icons/fa'
-// import {bgColor, textColor} from '../tagColors'
 
 const colors = {
   'react.js': {
@@ -67,7 +66,7 @@ const Projects = ({ data }) => {
   return (
     <Layout>
       <Seo title='projects' />
-      <div className='grow gap-10 mt-5 px-5 flex flex-col self-center w-full lg:w-2/3'>
+      <div className='grow gap-10 mt-5 px-5 flex flex-col self-center w-full md:w-5/6 lg:w-3/4 xl:w-2/3'>
         <div className='flex flex-col gap-6 md:gap-8'>
           <h2 className='text-xl mb-3'>
             A <sup className='text-base'>limited</sup> selection of projects
@@ -82,7 +81,10 @@ const Projects = ({ data }) => {
             !
           </h2>
           {data.allContentfulProject.nodes.map((node, i) => (
-            <div key={i} className='flex flex-col gap-2 md:gap-4  md:p-2  rounded-2xl'>
+            <div
+              key={i}
+              className='flex flex-col gap-2 md:gap-4 md:mb-3 rounded-2xl'
+            >
               <div className='flex flex-col gap-4 bg-gray-700/40 p-4 border-2 border-tertiary rounded-lg '>
                 <div className={`flex flex-wrap gap-2 justify-start items-end`}>
                   <CustomLink
@@ -93,9 +95,6 @@ const Projects = ({ data }) => {
                   >
                     {node.title}
                   </CustomLink>
-                  {/* <span className='text-gray-300 text-xl font-extrabold'>
-                    /
-                  </span> */}
                   <button
                     title='Repo Link'
                     className='repo-link z-10 md:ml-2 w-fit text-gray-300 text-2xl hover:-translate-y-1  transition-transform'
@@ -126,7 +125,6 @@ const Projects = ({ data }) => {
                   ))}
                 </div>
               </div>
-              {/* <hr className='md:my-2 border-gray-200/30' /> */}
               <div
                 className={`flex flex-col ${
                   i % 2 ? 'md:flex-row' : 'md:flex-row-reverse'
@@ -139,13 +137,17 @@ const Projects = ({ data }) => {
                     image={node.image.gatsbyImageData}
                   />
                 </div>
-                <div className='p-4 border-secondary border-2 bg-gray-700/50 rounded-lg md:p-4 flex-col'>
-                  <p className={`leading-relaxed text-justify`}>
-                    {node.description.description}
-                  </p>
+                <div className='p-4 text-justify text-lg leading-normal border-secondary border-2 bg-gray-700/50 rounded-lg md:p-4 flex-col'>
+                  <p>{node.description.description}</p>
                 </div>
               </div>
-              <hr className={`${i < data.allContentfulProject.nodes.length-1 ? 'block' : 'hidden'} md:hidden mt-4 border-gray-500/50`} />
+              <hr
+                className={`${
+                  i < data.allContentfulProject.nodes.length - 1
+                    ? 'block'
+                    : 'hidden'
+                } md:hidden mt-4 border-gray-500/50`}
+              />
             </div>
           ))}
         </div>

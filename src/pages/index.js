@@ -9,22 +9,22 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo title='home' />
-      <div className='flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
-        <div className='select-none text-3xl md:text-4xl flex  items-center'>
+      <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
+        <div className='text-3xl md:text-4xl flex  items-center'>
           <h1
-            className='text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary '
+            className='text-start  transition-all hover:tracking-wider font-semibold md:text-center text-primary '
           >
             welcome to my humble abode!
           </h1>
-          <span className='md:basis-auto basis-full '>
+          <span className='md:basis-auto text-3xl basis-full '>
             <span className='animate-wave origin-bottom-right inline-block ml-2'>👋</span>
           </span>
         </div>
-        <div className='flex text-lg gap-5 md:justify-center justify-start items-center'>
+        <div className='flex gap-5 md:justify-center justify-start items-center'>
           {links.map((link, i) => {
             return (
               <React.Fragment key={link}>
-                <CustomLink to={`/${link}`}>
+                <CustomLink className={'font-link text-3xl'} to={`/${link}`}>
                   {link}
                 </CustomLink>
                 {i < links.length - 1  && '•'}
