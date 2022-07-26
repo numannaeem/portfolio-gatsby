@@ -53,8 +53,8 @@ const colors = {
     text: 'text-black'
   },
   'firebase': {
-    bg: 'bg-[#d2e3fc]',
-    text: 'text-[#f7cc50]'
+    bg: 'bg-[#002fa6]',
+    text: 'text-[#ffcc34]'
   },
   'razorpay': {
     bg: 'bg-[#020328]',
