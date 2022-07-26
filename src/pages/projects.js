@@ -51,6 +51,14 @@ const colors = {
   'next.js': {
     bg: 'bg-[#ffffff]',
     text: 'text-black'
+  },
+  'firebase': {
+    bg: 'bg-[#d2e3fc]',
+    text: 'text-[#f7cc50]'
+  },
+  'razorpay': {
+    bg: 'bg-[#020328]',
+    text: 'text-[#4682e3]'
   }
 }
 
