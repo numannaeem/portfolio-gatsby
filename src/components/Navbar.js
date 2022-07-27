@@ -1,4 +1,5 @@
 import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import React, { useContext, useEffect, useState } from 'react'
 import { CursorContext } from './layout'
 
@@ -19,42 +20,64 @@ const Navbar = () => {
   let options = ['default', 'dog', 'monkey', 'lion', 'bee']
 
   return (
-    <div
-      onDoubleClick={() => setSelectorHidden(p => !p)}
-      className={`${
-        offset > 30 ? 'bg-gray-700/40 shadow-xl ' : ''
-      } md:py-4 py-3 overflow-hidden transition-colors select-none sticky top-0 backdrop-blur-xl z-50  flex items-center px-5 justify-between`}
-    >
-      <Link
-        to='/'
-        className='drop-shadow-lg will-change-transform hover:rotate-180 ease-in-out transition delay-300 duration-[400ms] text-3xl text-white font-bold'
+    <>
+      <div
+        onDoubleClick={() => setSelectorHidden(p => !p)}
+        className={`${
+          offset > 30 ? 'bg-gray-700/40 shadow-xl backdrop-blur-xl' : ''
+        } md:py-4 py-3 overflow-hidden transition-colors select-none fixed top-0 z-50 w-full flex items-center px-5 justify-between`}
       >
-        <img alt="logo" className='' height={100} width={100} src='/svgs/logo.svg' />
-      </Link>
-      <div className={`${selectorHidden && 'opacity-0 translate-x-[100%]' } duration-300 transition-all will-change-transform cursor-default hidden md:flex flex-col group items-center mt-3`}>
-        <div className='flex'>
-          {options.map(option => (
-            <div
-              key={option}
-              className={`${option === cursor &&
-                'bg-gray-700'} transition-colors rounded-md p-1 cursor-pointer mr-1`}
-            >
-              <img
-                alt={option}
-                title={option}
-                onClick={() => setCursor(option)}
-                height={32}
-                width={32}
-                src={`/svgs/${option}.svg`}
-              />
-            </div>
-          ))}
+        <AniLink
+          hex='#FFA099'
+          paintDrip
+          duration={0.4}
+          to='/'
+          className='drop-shadow-lg will-change-transform hover:rotate-180 ease-in-out transition delay-150 duration-[400ms] text-3xl text-white font-bold'
+        >
+          <img
+            alt='logo'
+            className=''
+            height={100}
+            width={100}
+            src='/svgs/logo.svg'
+          />
+        </AniLink>
+        <div
+          className={`${selectorHidden &&
+            'opacity-0 translate-x-[100%]'} duration-300 transition-all will-change-transform cursor-default hidden md:flex flex-col group items-center mt-3`}
+        >
+          <div className='flex'>
+            {options.map(option => (
+              <div
+                key={option}
+                className={`${option === cursor &&
+                  'bg-gray-700'} transition-colors rounded-md p-1 cursor-pointer mr-1`}
+              >
+                <img
+                  alt={option}
+                  title={option}
+                  onClick={() => setCursor(option)}
+                  height={32}
+                  width={32}
+                  src={`/svgs/${option}.svg`}
+                />
+              </div>
+            ))}
+          </div>
+          <p className='text-secondary transition opacity-0 group-hover:opacity-90'>
+            choose your cursor!
+          </p>
         </div>
-        <p className='text-secondary transition opacity-0 group-hover:opacity-90'>
-          choose your cursor!
-        </p>
       </div>
-    </div>
+      <div
+        className={`md:py-4 py-3 overflow-hidden sticky top-0 flex opacity-0 items-center`}
+      >
+        <div
+          alt='logo'
+          className='h-[100px] w-[100px]'
+        />
+      </div>
+    </>
   )
 }
 

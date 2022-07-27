@@ -18,7 +18,7 @@ const About = () => {
   return (
     <Layout>
       <Seo title='about' />
-      <div className='grow gap-12 mt-5 px-5 flex flex-col self-center w-full lg:w-2/3'>
+      <div className='grow gap-12 bg-gray-900 mt-5 px-5 flex flex-col self-center w-full lg:w-2/3'>
         <div className='text-4xl text-secondary flex flex-col md:flex-row items-start md:items-end gap-9'>
           <StaticImage
             class='border-4 w-64 rounded-xl shrink-0 basis-96 object-top md:basis-72  border-primary'
