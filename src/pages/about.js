@@ -24,6 +24,7 @@ const About = () => {
             class='border-4 w-64 rounded-xl shrink-0 basis-96 object-top md:basis-72  border-primary'
             layout='constrained'
             src='../images/portrait.jpg'
+            alt='Me!'
             aspectRatio={3 / 4.5}
             placeholder='dominantColor'
           />

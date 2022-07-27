@@ -63,11 +63,11 @@ const colors = {
 }
 
 const textColor = tag => {
-  return colors[tag].text
+  return colors[tag]?.text || 'text-white'
 }
 
 const bgColor = tag => {
-  return colors[tag].bg
+  return colors[tag]?.bg || 'bg-black'
 }
 
 const Projects = ({ data }) => {
