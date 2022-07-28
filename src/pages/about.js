@@ -85,7 +85,7 @@ const About = () => {
           </ul>
         </div>
         <div className='mt-auto flex justify-between'>
-          <ArrowBtn dir={'left'} />
+          <ArrowBtn dir={'left'} to='/contact' />
           <ArrowBtn dir={'right'} to='/projects' />
         </div>
       </div>

@@ -105,7 +105,7 @@ const Projects = ({ data }) => {
                   </CustomLink>
                   <button
                     title='Repo Link'
-                    className='repo-link z-10 ml-2 w-fit text-gray-300 text-2xl hover:-translate-y-1  transition-transform'
+                    className='repo-link ml-2 w-fit text-gray-300 text-2xl hover:-translate-y-1  transition-transform'
                     onClick={e => {
                       e.stopPropagation()
                       window.open(node.repoLink, '_blank')
@@ -154,7 +154,7 @@ const Projects = ({ data }) => {
         </div>
 
         <div className='mt-auto flex justify-between'>
-          <ArrowBtn dir={'left'} />
+          <ArrowBtn dir={'left'} to='/about' />
           <ArrowBtn dir={'right'} to='/contact' />
         </div>
       </div>

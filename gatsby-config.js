@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `numxn`,
-    description: `Hi! I'm Numan, a 21 year-old web developer from Kerala, India. Check out my portfolio!`,
+    description: `Hi! I'm Numan Naeem, a 21 year-old web developer from Kerala, India. Check out my portfolio!`,
     author: `@numannaeem`,
     siteUrl: `https://numxn.me`,
   },
