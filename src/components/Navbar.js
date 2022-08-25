@@ -1,4 +1,3 @@
-import { Link } from 'gatsby'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import React, { useContext, useEffect, useState } from 'react'
 import { CursorContext } from './layout'
@@ -17,7 +16,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', scrollFn)
   }, [])
 
-  let options = ['default', 'dog', 'monkey', 'lion', 'bee']
+  let options = ['default', 'cat', 'dog', 'dove', 'fox',  'penguin', 'butterfly']
 
   return (
     <>
@@ -55,11 +54,11 @@ const Navbar = () => {
               >
                 <img
                   alt={option}
-                  title={option}
+                  title={option[0].toUpperCase() + option.slice(1)}
                   onClick={() => setCursor(option)}
                   height={32}
                   width={32}
-                  src={`/svgs/${option}.svg`}
+                  src={`/svgs/origami/${option}.svg`}
                 />
               </div>
             ))}

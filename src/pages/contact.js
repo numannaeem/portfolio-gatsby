@@ -4,8 +4,9 @@ import CustomLink from '../components/CustomLink'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import {FaRegEnvelope, FaLinkedinIn, FaGithub, FaInstagram} from 'react-icons/fa'
+import { graphql } from 'gatsby'
 
-const socials = () => {
+const socials = ({data}) => {
 	const links = [
 		{
 			to: 'mailto:dev@numxn.me',
@@ -48,7 +49,9 @@ const socials = () => {
 						</li>
 					))}
         </ul>
-        <button className='rounded-lg text-lg font-semibold border-2 w-fit py-2 px-3 transition-colors  hover:text-gray-900 text-primary button-grow after:bg-primary border-primary' onClick={() => window.open('./resources/Numan_Naeem_Resume.pdf')}>View Résumé</button>
+        <button className='rounded-lg text-lg font-semibold border-2 w-fit py-2 px-3 transition-colors  hover:text-gray-900 text-primary button-grow after:bg-primary border-primary' onClick={() => window.open(`https:${data.contentfulPdf.pdf.file.url}`)}>
+          View Résumé
+        </button>
         <div className='mt-auto flex justify-between'>
           <ArrowBtn dir={"left"} to='/projects' />
           <ArrowBtn dir={"right"} to='/about' />
@@ -57,5 +60,17 @@ const socials = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+query MyQuery {
+  contentfulPdf(title: { eq: "Resume" }) {
+    pdf {
+      file {
+        url
+      }
+    }
+  }
+}
+`
 
 export default socials

@@ -4,7 +4,6 @@ import React from 'react'
 
 const CustomLink = ({to, children, target, classes, className}) => {
 	if(target === "_blank") {
-		console.log('here');
 		return (
 			<a target={target} className={`${className || ''} link-grow ${classes}`} href={to}>{children}</a>
 		)
