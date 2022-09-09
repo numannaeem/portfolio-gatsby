@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Portfolio website for Numan Naeem built using Gatsby.js",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Numan Naeem <numan.naeem9@gmail.com>",
   "dependencies": {
     "@fontsource/outfit": "^4.5.8",
     "@fontsource/sacramento": "^4.5.8",
