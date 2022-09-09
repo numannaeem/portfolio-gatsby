@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import ArrowBtn from '../components/ArrowBtn'
@@ -5,7 +6,7 @@ import CustomLink from '../components/CustomLink'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 
-const About = () => {
+const About = ({data}) => {
   const superscript = i => {
     let j = i % 10,
       k = i % 100
@@ -43,6 +44,14 @@ const About = () => {
                 When I'm bored, you'll find me playing Chess, taking photos of
                 the sky, or watching the most random videos on YouTube.
               </p>
+              <button
+          className='rounded-lg text-lg font-semibold mt-6 border-2 w-fit py-2 px-3 transition-colors hover:text-gray-900 text-primary button-grow after:bg-primary border-primary'
+          onClick={() =>
+            window.open(`https:${data.contentfulPdf.pdf.file.url}`)
+          }
+        >
+          View Résumé
+        </button>
             </div>
           </div>
         </div>
@@ -92,5 +101,17 @@ const About = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query MyQuery {
+    contentfulPdf(title: { eq: "Resume" }) {
+      pdf {
+        file {
+          url
+        }
+      }
+    }
+  }
+`
 
 export default About
