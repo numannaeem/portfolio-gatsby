@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: #111827;
+}
 
 .wave:hover {
   animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
@@ -86,16 +89,16 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
   background-color: #111827;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 100px;
+  margin: 1px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 100px;
-  background-image: linear-gradient(180deg, #ff9285 40%, #ff9285 100%);
-  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  background-color: #ff9285;
 }
