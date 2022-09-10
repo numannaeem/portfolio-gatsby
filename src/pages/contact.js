@@ -169,7 +169,7 @@ const Contact = () => {
           <p className='text-xl my-2 '>...or, send a quick message!</p>
           <div className='w-full flex flex-row flex-wrap gap-3'>
             <input
-              className='grow transition-colors focus:border-tertiary outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
+              className='grow transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
               type={'text'}
               value={formData.name}
               name='name'
@@ -177,7 +177,7 @@ const Contact = () => {
               required
             ></input>
             <input
-              className='grow-[5] transition-colors focus:border-tertiary outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
+              className='grow-[5] transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
               type={'email'}
               value={formData.email}
               name='email'
@@ -187,7 +187,7 @@ const Contact = () => {
           </div>
           <textarea
             rows={4}
-            className=' bg-gray-800 transition-colors focus:border-tertiary outline-none border-gray-700 border-2 px-3 py-2 rounded-md w-full'
+            className=' bg-gray-800 transition-colors focus:border-gray-500 outline-none border-gray-700 border-2 px-3 py-2 rounded-md w-full'
             value={formData.message}
             name='message'
             placeholder='Tell me anything and everything!'

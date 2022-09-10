@@ -42,12 +42,6 @@ html {
   transition: transform 0.25s ease-out;
 }
 
-.card-group:hover :not(.repo-link:hover) .link-grow:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-
 .link-grow:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
@@ -56,6 +50,7 @@ html {
 .button-grow {
   position: relative;
 }
+
 .button-grow:hover {
   color: #111827;
   z-index: 2;
@@ -87,6 +82,8 @@ html {
 .button-left:hover:after {
   transform-origin: bottom right;
 }
+
+/* ---------------- Scrollbar styles ---------------- */
 
 ::-webkit-scrollbar {
   width: 7px;

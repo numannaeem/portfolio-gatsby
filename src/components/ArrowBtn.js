@@ -1,5 +1,4 @@
 import React from 'react'
-import { navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
