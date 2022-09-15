@@ -12,7 +12,7 @@ module.exports = {
         tertiary: "#b0e7fd"
       },
       animation: {
-        'wave': 'wave 4s ease-in infinite',
+        'wave': 'wave 5s ease-in infinite',
       },
       keyframes: {
         wave: {

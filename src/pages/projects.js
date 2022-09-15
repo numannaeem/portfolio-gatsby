@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { FaGithub } from 'react-icons/fa'
 import colors from '../colors'
+import { Fade, Slide, Flip } from 'react-reveal'
 
 // const colors = {
 //   'react.js': {
@@ -89,7 +90,8 @@ const Projects = ({ data }) => {
             <div
               key={i}
               className={`flex flex-col md:gap-3 md:mb-3 border-2 ${i%3 === 0 ? 'border-primary' : i%3 === 1 ? 'border-tertiary' : 'border-secondary'} overflow-hidden md:border-0 md:overflow-visible rounded-xl`}
-            >
+              >
+            <Fade top>
               <div className='flex flex-col gap-4 bg-gray-700/40 p-4 md:border-2 border-tertiary md:rounded-lg '>
                 <div className={`flex flex-wrap gap-2 justify-start items-end`}>
                   <CustomLink
@@ -97,7 +99,7 @@ const Projects = ({ data }) => {
                     to={node.link}
                     classes={`${i%3 === 0 ? 'text-primary after:bg-primary' : i%3 === 1 ? 'text-tertiary after:bg-tertiary' : 'text-secondary after:bg-secondary'}`}
                     className='font-bold w-fit text-2xl md:text-3xl md:text-tertiary md:after:bg-tertiary'
-                  >
+                    >
                     {node.title}
                   </CustomLink>
                   <button
@@ -107,45 +109,51 @@ const Projects = ({ data }) => {
                       e.stopPropagation()
                       window.open(node.repoLink, '_blank')
                     }}
-                  >
+                    >
                     <FaGithub />
                   </button>
                   <span
                     className='font-normal w-full md:w-auto text-sm italic text-gray-300'
                     title='Work In Progress'
-                  >
+                    >
                     ({node.completed ? `completed ${node.date}` : 'WIP'})
                   </span>
                 </div>
                 <div className={`flex gap-2 flex-wrap`}>
                   {node.tags.map(tag => (
                     <span
-                      key={tag}
-                      className={`px-2 text-sm py-1 rounded-md ${styles(tag)}`}
+                    key={tag}
+                    className={`px-2 text-sm py-1 rounded-md ${styles(tag)}`}
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
+                  </Fade>
               <div
                 className={`flex flex-col ${
                   i % 2 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }  md:gap-3`}
               >
-                <div className='shrink-0 border-primary md:border-2 self-stretch flex flex-col w-full md:w-5/12 md:rounded-lg  overflow-hidden'>
-                  <GatsbyImage
-                    className='h-full'
-                    alt={node.title}
-                    image={node.image.gatsbyImageData}
-                  />
-                </div>
-                <div className='p-4 text-justify text-lg leading-normal border-secondary md:border-2 bg-gray-700/50 md:rounded-lg md:p-4 flex-col'>
-                  <p>{node.description.description}</p>
-                </div>
+               <Fade left={i%2} right={!(i%2)}>
+                 <div className='shrink-0 border-primary md:border-2 self-stretch flex flex-col w-full md:w-5/12 md:rounded-lg  overflow-hidden'>
+                   <GatsbyImage
+                     className='h-full'
+                     alt={node.title}
+                     image={node.image.gatsbyImageData}
+                   />
+                 </div>
+               </Fade>
+               <Fade right={i%2} left={!(i%2)}>
+                 <div className='p-4 text-justify text-lg leading-normal border-secondary md:border-2 bg-gray-700/50 md:rounded-lg md:p-4 flex-col'>
+                   <p>{node.description.description}</p>
+                 </div>
+               </Fade>
               </div>
             </div>
           ))}
+
         </div>
 
         <div className='mt-auto flex justify-between'>

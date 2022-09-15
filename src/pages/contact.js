@@ -12,6 +12,7 @@ import {
 import { BiLoaderAlt } from 'react-icons/bi'
 import { FiSend } from 'react-icons/fi'
 import animationData from '../lotties/success.json'
+import {Fade} from 'react-reveal'
 import Lottie from 'react-lottie'
 
 const Contact = () => {
@@ -100,117 +101,121 @@ const Contact = () => {
           Have an exciting project in mind, or just wanna have a chat? Find me
           below...
         </h2>
-        <div className='font-semibold flex gap-6 gap-y-2 flex-wrap text-base'>
-          {links.map(link => (
-            <div key={link.name} className=' text-lg mb-2'>
-              <CustomLink
-                target={'_blank'}
-                className='flex gap-2 items-center w-fit'
-                to={link.to}
-                classes={link.classes}
-              >
-                {link.icon}
-                {link.name}
-              </CustomLink>
-            </div>
-          ))}
-        </div>
-
-        <form
-          className={`${(sending || sent) &&
-            'pointer-events-none'} relative transition-opacity w-full shadow-2xl mt-3 mb-6 bg-gray-800 p-4 rounded-lg  flex text-white flex-col gap-3 justify-start items-start`}
-          onSubmit={sendMessage}
-          onChange={handleChange}
-        >
-          <div
-            className={`${
-              sending
-                ? 'bg-opacity-60'
-                : sent
-                ? 'bg-opacity-100'
-                : 'bg-opacity-0'
-            } duration-300 transition-all flex-col top-0 left-0 rounded-lg pointer-events-none bg-gray-800 text-green-300 text-2xl absolute z-20 h-full w-full flex items-center justify-center`}
-          >
-            {sent ? (
-              <>
-                <Lottie
-                  options={{
-                    loop: false,
-                    autoplay: true,
-                    animationData: animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: 'xMidYMid slice'
-                    }
-                  }}
-                  eventListeners={[
-                    {
-                      eventName: 'enterFrame',
-                      callback: () =>
-                        setTimeout(() => setAnimCompleted(true), 1000)
-                    }
-                  ]}
-                  width={180}
-                  height={120}
-                />
-                <p
-                  className={`${
-                    animCompleted ? 'opacity-100' : 'opacity-0'
-                  } duration-300 transition-opacity`}
+        <Fade duration={1500} cascade top>
+          <div className='font-semibold flex gap-6 gap-y-2 flex-wrap text-base'>
+            {links.map(link => (
+              <div key={link.name} className=' text-lg mb-2'>
+                <CustomLink
+                  target={'_blank'}
+                  className='flex gap-2 items-center w-fit'
+                  to={link.to}
+                  classes={link.classes}
                 >
-                  Message sent!
-                </p>
-              </>
-            ) : (
-              sending && (
-                <BiLoaderAlt className='text-tertiary text-7xl z-20 animate-spin' />
-              )
-            )}
+                  {link.icon}
+                  {link.name}
+                </CustomLink>
+              </div>
+            ))}
           </div>
-          <p className='text-xl my-2 '>...or, send a quick message!</p>
-          <div className='w-full flex flex-row flex-wrap gap-3'>
-            <input
-              className='grow transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
-              type={'text'}
-              value={formData.name}
-              name='name'
-              placeholder='Name'
-              required
-            ></input>
-            <input
-              className='grow-[5] transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
-              type={'email'}
-              value={formData.email}
-              name='email'
-              placeholder='Email (so I can get back to you)'
-              required
-            ></input>
-          </div>
-          <textarea
-            rows={4}
-            className=' bg-gray-800 transition-colors focus:border-gray-500 outline-none border-gray-700 border-2 px-3 py-2 rounded-md w-full'
-            value={formData.message}
-            name='message'
-            placeholder='Tell me anything and everything!'
-            required
-          ></textarea>
-          <div className='flex items-center mt-3 mb-1 flex-row gap-5'>
-            <button
-              disabled={sending}
-              type='submit'
+        </Fade>
+
+        <Fade delay={700}>
+          <form
+            className={`${(sending || sent) &&
+              'pointer-events-none'} relative transition-opacity w-full shadow-2xl mt-3 mb-6 bg-gray-800 p-4 rounded-lg  flex text-white flex-col gap-3 justify-start items-start`}
+            onSubmit={sendMessage}
+            onChange={handleChange}
+          >
+            <div
               className={`${
-                sending ? 'pointer-events-none' : 'button-grow'
-              } rounded-lg flex gap-2 items-center text-lg font-semibold border-2 w-fit py-2 px-3 transition-colors hover:text-gray-900 text-tertiary after:bg-tertiary border-tertiary`}
+                sending
+                  ? 'bg-opacity-60'
+                  : sent
+                  ? 'bg-opacity-100'
+                  : 'bg-opacity-0'
+              } duration-300 transition-all flex-col top-0 left-0 rounded-lg pointer-events-none bg-gray-800 text-green-300 text-2xl absolute z-20 h-full w-full flex items-center justify-center`}
             >
-              Send
-              <FiSend />
-            </button>
-            {err && (
-              <span className={` text-red-300`}>
-                Uh-Oh! Something went wrong :/
-              </span>
-            )}
-          </div>
-        </form>
+              {sent ? (
+                <>
+                  <Lottie
+                    options={{
+                      loop: false,
+                      autoplay: true,
+                      animationData: animationData,
+                      rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid slice'
+                      }
+                    }}
+                    eventListeners={[
+                      {
+                        eventName: 'enterFrame',
+                        callback: () =>
+                          setTimeout(() => setAnimCompleted(true), 1000)
+                      }
+                    ]}
+                    width={180}
+                    height={120}
+                  />
+                  <p
+                    className={`${
+                      animCompleted ? 'opacity-100' : 'opacity-0'
+                    } duration-300 transition-opacity`}
+                  >
+                    Message sent!
+                  </p>
+                </>
+              ) : (
+                sending && (
+                  <BiLoaderAlt className='text-tertiary text-7xl z-20 animate-spin' />
+                )
+              )}
+            </div>
+            <p className='text-xl my-2 '>...or, send a quick message!</p>
+            <div className='w-full flex flex-row flex-wrap gap-3'>
+              <input
+                className='grow transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
+                type={'text'}
+                value={formData.name}
+                name='name'
+                placeholder='Name'
+                required
+              ></input>
+              <input
+                className='grow-[5] transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
+                type={'email'}
+                value={formData.email}
+                name='email'
+                placeholder='Email (so I can get back to you)'
+                required
+              ></input>
+            </div>
+            <textarea
+              rows={4}
+              className=' bg-gray-800 transition-colors focus:border-gray-500 outline-none border-gray-700 border-2 px-3 py-2 rounded-md w-full'
+              value={formData.message}
+              name='message'
+              placeholder='Tell me anything and everything!'
+              required
+            ></textarea>
+            <div className='flex items-center mt-3 mb-1 flex-row gap-5'>
+              <button
+                disabled={sending}
+                type='submit'
+                className={`${
+                  sending ? 'pointer-events-none' : 'button-grow'
+                } rounded-lg flex gap-2 items-center text-lg font-semibold border-2 w-fit py-2 px-3 transition-colors hover:text-gray-900 text-tertiary after:bg-tertiary border-tertiary`}
+              >
+                Send
+                <FiSend />
+              </button>
+              {err && (
+                <span className={` text-red-300`}>
+                  Uh-Oh! Something went wrong :/
+                </span>
+              )}
+            </div>
+          </form>
+        </Fade>
 
         <div className='mt-auto flex justify-between'>
           <ArrowBtn dir={'left'} to='/projects' />

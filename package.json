@@ -27,7 +27,8 @@
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
-    "react-lottie": "^1.2.3"
+    "react-lottie": "^1.2.3",
+    "react-reveal": "^1.2.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
