@@ -59,13 +59,13 @@ const About = ({data}) => {
           </div>
         </Fade>
         <div className='text-lg'>
-          <Fade delay={400}>
+          <Fade delay={200}>
           <hr className='mb-9 border-gray-600/50' />
             <h3 className='mt-7 mb-4 text-2xl font-semibold'>
               a (very) brief history
             </h3>
           </Fade>
-          <Fade delay={700} cascade top>
+          <Fade delay={400} cascade top>
           <ul className='list-disc space-y-2 list-inside text-lg'>
             <li>
               Born on the 23<sup>rd</sup> of February, 2001, in Riyadh, Saudi

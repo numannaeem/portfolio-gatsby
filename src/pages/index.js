@@ -12,18 +12,21 @@ const IndexPage = () => {
       <Seo title='home' />
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
         <div className='text-3xl md:text-4xl flex  items-center'>
-          <h1 className='text-start  transition-all hover:tracking-wider font-semibold md:text-center text-primary '>
+          <h1 className='md:block hidden break-normal text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary '>
             <Fade left cascade duration={1000}>
-              welcome  to  my  humble  abode!
+              welcome to my humble abode!
             </Fade>
           </h1>
-          <Fade left delay={500}>
-            <span className='md:basis-auto text-3xl basis-full '>
-              <span className='animate-wave origin-bottom-right inline-block ml-2'>
+          <h1 className='md:hidden block break-normal text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary '>
+            <Fade duration={1000}>welcome to my humble abode!</Fade>
+          </h1>
+          <div className='md:basis-auto text-3xl basis-full'>
+            <span className='animate-wave origin-bottom-right inline-block ml-2' >
+              <Fade delay={500}>
                 👋
-              </span>
+              </Fade>
             </span>
-          </Fade>
+          </div>
         </div>
         <div className='flex gap-5 md:justify-center justify-start items-center'>
           {links.map((link, i) => {
