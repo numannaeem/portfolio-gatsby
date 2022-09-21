@@ -3,24 +3,24 @@ import CustomLink from '../components/CustomLink'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { Fade } from 'react-reveal'
+import useCheckMobileScreen from '../mobileHook'
 
 const links = ['about', 'projects', 'contact']
 
 const IndexPage = () => {
+  const isMobile = useCheckMobileScreen()
+  
   return (
     <Layout>
       <Seo title='home' />
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
         <div className='text-3xl md:text-4xl flex  items-center'>
-          <h1 className='md:block hidden break-normal text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary '>
-            <Fade left cascade duration={1000}>
+          <h1 className='text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary'>
+            <Fade ssrFadeout left={!isMobile} cascade={!isMobile} duration={1000}>
               welcome to my humble abode!
             </Fade>
           </h1>
-          <h1 className='md:hidden block break-normal text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary '>
-            <Fade duration={1000}>welcome to my humble abode!</Fade>
-          </h1>
-          <div className='md:basis-auto text-3xl basis-full'>
+          <div className=' md:basis-auto text-3xl basis-full'>
             <span className='animate-wave origin-bottom-right inline-block ml-2' >
               <Fade delay={500}>
                 👋
