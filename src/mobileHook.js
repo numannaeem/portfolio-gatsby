@@ -14,6 +14,6 @@ const useCheckMobileScreen = typeof window !== 'undefined' ? () => {
   }, [])
 
   return width <= 768
-} : null
+} : () => {}
 
 export default useCheckMobileScreen
