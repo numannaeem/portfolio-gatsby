@@ -22,7 +22,7 @@ const IndexPage = () => {
           </h1>
           <div className=' md:basis-auto text-3xl basis-full'>
             <span className='animate-wave origin-bottom-right inline-block ml-2' >
-              <Fade delay={500}>
+              <Fade ssrReveal delay={500}>
                 👋
               </Fade>
             </span>
