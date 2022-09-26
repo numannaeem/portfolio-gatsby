@@ -16,7 +16,7 @@ const IndexPage = () => {
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
         <div className='text-3xl md:text-4xl flex  items-center'>
           <h1 className='text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary'>
-            <Fade ssrFadeout left={!isMobile} cascade={!isMobile} duration={1000}>
+            <Fade ssrReveal left={!isMobile} cascade={!isMobile} duration={1000}>
               welcome to my humble abode!
             </Fade>
           </h1>
@@ -32,12 +32,12 @@ const IndexPage = () => {
           {links.map((link, i) => {
             return (
               <>
-                <Fade bottom duration={800} delay={800 + 600 * i} key={link}>
+                <Fade ssrReveal duration={800} delay={800 + 600 * i} key={link}>
                   <CustomLink className={'font-link text-3xl'} to={`/${link}`}>
                     {link}
                   </CustomLink>
                 </Fade>
-                <Fade delay={1100 + 600 * i}>
+                <Fade ssrReveal delay={1100 + 600 * i}>
                   <span className='text-secondary'>
                     {i < links.length - 1 && '•'}
                   </span>
