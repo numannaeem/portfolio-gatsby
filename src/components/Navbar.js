@@ -35,7 +35,6 @@ const Navbar = () => {
         >
           <img
             alt='logo'
-            className=''
             height={100}
             width={100}
             src='/svgs/logo.svg'

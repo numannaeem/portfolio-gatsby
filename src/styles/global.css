@@ -8,6 +8,7 @@ html {
 
 .link-grow {
   position: relative;
+  outline: none;
 }
 
 .link-grow:after {
@@ -22,7 +23,7 @@ html {
   transition: transform 0.25s ease-out;
 }
 
-.link-grow:hover:after {
+.link-grow:focus:after, .link-grow:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -31,12 +32,14 @@ html {
   position: relative;
 }
 
-.button-grow:hover {
+.button-grow:focus, .button-grow:hover {
   color: #111827;
   z-index: 2;
+  outline: none;
 }
 
 .button-grow:after {
+  outline: none;
   content: '';
   position: absolute;
   width: 100%;
@@ -48,7 +51,7 @@ html {
   transition: transform 0.25s ease-out;
 }
 
-.button-grow:hover:after {
+.button-grow:focus:after, .button-grow:hover:after {
   z-index: -2;
   transform: scaleX(1);
   transform-origin: bottom left;
@@ -59,8 +62,32 @@ html {
   transform-origin: bottom left;
 }
 
-.button-left:hover:after {
+.button-left:focus:after, .button-left:hover:after {
   transform-origin: bottom right;
+}
+
+.tile {
+  perspective: 1000px;
+}
+
+.tile.revealed .tile-inner {
+  transform: rotateY(180deg);
+}
+
+.tile-inner {
+  transform-style: preserve-3d;
+}
+
+.tile-front, .tile-back {
+  backface-visibility: hidden;
+}
+
+.tile-back {
+  transform: rotateY(180deg);
+}
+
+.tile-back img {
+  width: 75%
 }
 
 /* ---------------- Scrollbar styles ---------------- */

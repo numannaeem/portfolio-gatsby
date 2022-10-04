@@ -10,14 +10,16 @@ import PropTypes from 'prop-types'
 import Navbar from './Navbar'
 import baseUrl from '../baseUrl'
 
-export const CursorContext = React.createContext('default')
+export const CursorContext = React.createContext({
+  cursor: 'default',
+  setCursor: () => {}
+})
 
 const Layout = ({ children }) => {
-  
   const [cursor, setCursor] = React.useState()
   React.useEffect(() => {
     setCursor(localStorage.getItem('cursor') || 'default')
-  },[])
+  }, [])
 
   return (
     <CursorContext.Provider
