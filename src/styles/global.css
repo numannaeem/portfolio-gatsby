@@ -86,6 +86,12 @@ html {
   transform: rotateY(180deg);
 }
 
+.tile-front img {
+  width: 70%;
+  opacity: 0.5;
+  filter: brightness(0%) saturate(100%) invert(66%) sepia(0%) saturate(27%) hue-rotate(256deg) brightness(93%) contrast(91%);
+}
+
 .tile-back img {
   width: 75%
 }

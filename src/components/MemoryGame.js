@@ -56,27 +56,27 @@ function MemoryGame ({ handClicks, setHandClicks }) {
     return () => window.removeEventListener('keydown', keyHandler)
   }, [])
 
-  const randomNumber = max => Math.floor(Math.random() * max) //random integer between 0 and max(not inclusive)
+  // const randomNumber = max => Math.floor(Math.random() * max) //random integer between 0 and max(not inclusive)
 
   const assignCards = () => {
     let options = [
-      { name: 'cat', count: 0 },
-      { name: 'dog', count: 0 },
-      { name: 'dove', count: 0 },
-      { name: 'fox', count: 0 },
-      { name: 'penguin', count: 0 },
-      { name: 'butterfly', count: 0 }
+      'dog',
+      'dove',
+      'fox',
+      'cat',
+      'fox',
+      'butterfly',
+      'dove',
+      'penguin',
+      'penguin',
+      'cat',
+      'butterfly',
+      'dog'
     ]
-    let temp = []
-    for (let i = 0; i < options.length * 2; i++) {
-      let randInt = randomNumber(6)
-      while (options[randInt].count === 2) {
-        randInt = (randInt + 1) % 6
-      }
-      options[randInt].count++
-      temp[i] = { name: options[randInt].name, revealed: false }
-    }
-    setTiles(temp)
+    options = options
+      .sort(() => (Math.random() > 0.5 ? 1 : -1))
+      .map(v => ({ name: v, revealed: false }))
+    setTiles(options)
   }
 
   React.useEffect(() => {
@@ -120,9 +120,9 @@ function MemoryGame ({ handClicks, setHandClicks }) {
   }
 
   const restartGame = () => {
-    let cards = [...tiles]
-    cards = cards.map(card => (card.revealed = false))
-    setTiles(cards)
+    // let cards = [...tiles]
+    // cards = cards.map(card => (card.revealed = false))
+    setTiles(p => p.map(el => ({...el, revealed: false})))
     setTimeout(() => {
       assignCards()
       setGameOver(false)
@@ -133,16 +133,16 @@ function MemoryGame ({ handClicks, setHandClicks }) {
 
   return modalOpen ? (
     <Fade duration={400} when={innerModalOpen}>
-      <div className='flex self-center top-[20%] fixed z-[60] outline-none focus:outline-none'>
+      <div className='flex self-center top-[15%] fixed z-[60] outline-none focus:outline-none'>
         <div
-          className={`bg-gray-700/50 transition-colors border-0 md:p-3 p-1 rounded-lg shadow-2xl relative flex flex-col w-full outline-none focus:outline-none`}
+          className={`mx-4 md:mx-0 bg-gray-700/50 transition-colors border-0 md:p-3 p-1 rounded-lg shadow-2xl relative flex flex-col w-full outline-none focus:outline-none`}
         >
-          <div className='p-5 items-center text-gray-200 pb-2 text-xl flex justify-between'>
+          <div className='p-5 items-center text-gray-200 pb-2 text-xl flex flex-col sm:flex-row justify-between'>
             <p className=''>
               {gameOver ? 'Well played! 🎉' : 'What have we here? 🤔'}
             </p>
             <Fade when={tries} duration={600}>
-              <p className='font-bold'>Tries: {tries}</p>
+              <p className='font-bold mt-2 sm:mt-0'>Tries: {tries}</p>
             </Fade>
           </div>
           <div className='flex max-w-md flex-wrap md:gap-5 gap-4 items-start justify-between p-5 rounded'>
@@ -151,11 +151,13 @@ function MemoryGame ({ handClicks, setHandClicks }) {
                 onClick={() => revealCard(i)}
                 key={i}
                 className={`tile ${
-                  tile.revealed ? 'revealed' : ''
-                } rounded-md overflow-hidden shadow-lg basis-[21%] bg-transparent w-20 h-24`}
+                  tile.revealed ? 'revealed' : 'md:hover:-translate-y-1 md:hover:shadow-[#141414] hover:shadow-lg'
+                } select-none rounded-md transition-all duration-100 overflow-hidden shadow-lg basis-[21%] bg-transparent w-20 md:h-[104px] h-24`}
               >
                 <div className='tile-inner transition-transform duration-300 relative w-full h-full'>
-                  <div className='tile-front bg-gray-600 absolute w-full h-full'></div>
+                  <div className='tile-front bg-gray-600 flex items-center justify-center absolute w-full h-full'>
+                    <img src='/svgs/logo.svg' className='text-gray-200' />
+                  </div>
                   <div className='tile-back bg-gray-700 flex items-center justify-center absolute w-full h-full'>
                     <img src={`/svgs/origami/${tile.name}.svg`} />
                   </div>
@@ -176,7 +178,7 @@ function MemoryGame ({ handClicks, setHandClicks }) {
         </div>
       </div>
       <div
-        className='fixed overflow-hidden inset-0 z-50 backdrop-blur-xl bg-black bg-opacity-40'
+        className='fixed overflow-hidden inset-0 z-50 backdrop-blur-lg bg-black bg-opacity-40'
         onClick={closeModal}
       ></div>
     </Fade>
