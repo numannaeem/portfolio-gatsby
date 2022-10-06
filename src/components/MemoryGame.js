@@ -56,8 +56,6 @@ function MemoryGame ({ handClicks, setHandClicks }) {
     return () => window.removeEventListener('keydown', keyHandler)
   }, [])
 
-  // const randomNumber = max => Math.floor(Math.random() * max) //random integer between 0 and max(not inclusive)
-
   const assignCards = () => {
     let options = [
       'dog',
@@ -120,9 +118,7 @@ function MemoryGame ({ handClicks, setHandClicks }) {
   }
 
   const restartGame = () => {
-    // let cards = [...tiles]
-    // cards = cards.map(card => (card.revealed = false))
-    setTiles(p => p.map(el => ({...el, revealed: false})))
+    setTiles(p => p.map(el => ({ ...el, revealed: false })))
     setTimeout(() => {
       assignCards()
       setGameOver(false)
@@ -133,12 +129,12 @@ function MemoryGame ({ handClicks, setHandClicks }) {
 
   return modalOpen ? (
     <Fade duration={400} when={innerModalOpen}>
-      <div className='flex self-center top-[15%] fixed z-[60] outline-none focus:outline-none'>
+      <div className='flex self-center justify-self-center fixed z-[60] outline-none focus:outline-none'>
         <div
           className={`mx-4 md:mx-0 bg-gray-700/50 transition-colors border-0 md:p-3 p-1 rounded-lg shadow-2xl relative flex flex-col w-full outline-none focus:outline-none`}
         >
           <div className='p-5 items-center text-gray-200 pb-2 text-xl flex flex-col sm:flex-row justify-between'>
-            <p className=''>
+            <p className={`${gameOver && ''}`}>
               {gameOver ? 'Well played! 🎉' : 'What have we here? 🤔'}
             </p>
             <Fade when={tries} duration={600}>
@@ -151,7 +147,9 @@ function MemoryGame ({ handClicks, setHandClicks }) {
                 onClick={() => revealCard(i)}
                 key={i}
                 className={`tile ${
-                  tile.revealed ? 'revealed' : 'md:hover:-translate-y-1 md:hover:shadow-[#141414] hover:shadow-lg'
+                  tile.revealed
+                    ? 'revealed'
+                    : !disabled && 'md:hover:-translate-y-1 md:hover:shadow-[#141414] hover:shadow-lg'
                 } select-none rounded-md transition-all duration-100 overflow-hidden shadow-lg basis-[21%] bg-transparent w-20 md:h-[104px] h-24`}
               >
                 <div className='tile-inner transition-transform duration-300 relative w-full h-full'>
@@ -166,7 +164,7 @@ function MemoryGame ({ handClicks, setHandClicks }) {
             ))}
           </div>
           <Fade when={gameOver} duration={800} collapse top>
-            <div className='p-5 pt-2'>
+            <div className='p-5 pt-2 flex sm:justify-start justify-center'>
               <button
                 onClick={restartGame}
                 className='rounded-lg text-lg font-semibold border-2 w-fit py-2 px-3 transition-colors hover:text-gray-900 text-primary button-grow after:bg-primary border-primary'
@@ -183,7 +181,7 @@ function MemoryGame ({ handClicks, setHandClicks }) {
       ></div>
     </Fade>
   ) : (
-    <div></div>
+    <></>
   )
 }
 

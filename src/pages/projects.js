@@ -96,7 +96,7 @@ const Projects = ({ data }) => {
                   : 'border-secondary'
               } overflow-hidden md:border-0 md:overflow-visible rounded-xl`}
             >
-              <Fade top>
+              <Fade distance={'40px'} top>
                 <div className='flex flex-col gap-4 bg-gray-700/40 p-4 md:border-2 border-tertiary md:rounded-lg '>
                   <div
                     className={`flex flex-wrap gap-2 justify-start items-end`}
@@ -151,7 +151,7 @@ const Projects = ({ data }) => {
                   i % 2 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }  md:gap-3`}
               >
-                <Fade left={i % 2} right={!(i % 2)}>
+                <Fade distance={'30px'} left={i % 2} right={!(i % 2)}>
                   <div className='shrink-0 border-primary md:border-2 self-stretch flex flex-col w-full md:w-5/12 md:rounded-lg  overflow-hidden'>
                     <GatsbyImage
                       className='h-full'
@@ -160,7 +160,7 @@ const Projects = ({ data }) => {
                     />
                   </div>
                 </Fade>
-                <Fade right={i % 2} left={!(i % 2)}>
+                <Fade distance={'30px'} right={i % 2} left={!(i % 2)}>
                   <div className='p-4 text-justify text-lg leading-normal border-secondary md:border-2 bg-gray-700/50 md:rounded-lg md:p-4 flex-col'>
                     <p>{node.description.description}</p>
                   </div>
