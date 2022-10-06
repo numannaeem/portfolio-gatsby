@@ -4,21 +4,29 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { Fade } from 'react-reveal'
 import useCheckMobileScreen from '../mobileHook'
-import PasswordModal from '../components/PasswordModal'
 import MemoryGame from '../components/MemoryGame'
+import SecretModal from '../components/SecretModal'
+import PasswordModal from '../components/PasswordModal'
 
 const links = ['about', 'projects', 'contact']
 
-
 const IndexPage = () => {
-
   const isMobile = useCheckMobileScreen()
   const [handClicks, setHandClicks] = React.useState(0)
 
   return (
     <Layout>
       <Seo title='home' />
-      <MemoryGame handClicks={handClicks} setHandClicks={setHandClicks} />
+      <SecretModal
+        handClicks={handClicks}
+        setHandClicks={setHandClicks}
+        trigger='memory'
+      >
+        <MemoryGame />
+      </SecretModal>
+      <SecretModal trigger='password'>
+        <PasswordModal />
+      </SecretModal>
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
         <div className='text-3xl md:text-4xl flex  items-center'>
           <h1 className='text-start transition-all hover:tracking-wider font-semibold md:text-center text-primary'>
@@ -28,7 +36,7 @@ const IndexPage = () => {
           </h1>
           <div className=' md:basis-auto text-3xl basis-full'>
             <span
-              onClick={() => setHandClicks(p => p+1)}
+              onClick={() => setHandClicks(p => p + 1)}
               className='animate-wave origin-bottom-right inline-block ml-2'
             >
               <Fade ssrReveal delay={500}>
