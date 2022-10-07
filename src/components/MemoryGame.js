@@ -117,7 +117,7 @@ function MemoryGame () {
 
   return (
     <div
-      className={`mx-4 md:mx-0 border border-secondary bg-gray-700/50 transition-colors md:p-3 p-1 rounded-lg shadow-2xl relative flex flex-col w-full outline-none focus:outline-none`}
+      className={`mx-2 md:mx-0 border border-secondary bg-gray-700/50 transition-colors md:p-3 p-1 rounded-lg shadow-2xl relative flex flex-col outline-none focus:outline-none`}
     >
       <ReactCanvasConfetti
         refConfetti={getInstance}
