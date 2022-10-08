@@ -18,7 +18,7 @@ function PasswordModal () {
   }, [password])
 
   return (
-    <div className='mx-2 md:mx-0 border border-primary bg-gray-700/50 rounded-lg shadow-2xl relative outline-none focus:outline-none'>
+    <div className='mx-2 md:mx-0 bg-gray-700/50 rounded-lg shadow-2xl relative outline-none focus:outline-none'>
       {!loggedIn ? (
         <Fade>
           <div className={`p-6 flex flex-col`}>
@@ -31,7 +31,7 @@ function PasswordModal () {
                 autoFocus
                 value={password}
                 onChange={e => setPassword(e.target.value)}
-                className='disabled:bg-gray-300/20 grow w-80 transition-all focus:border-gray-300 disabled:border-green-300 outline-none bg-transparent border-gray-500 border px-3 py-2 rounded-md'
+                className='disabled:bg-gray-300/20 grow w-80 transition-all focus:border-tertiary disabled:border-green-300 outline-none bg-transparent border-gray-500 border-2 px-3 py-2 rounded-md'
                 type={'text'}
                 placeholder=''
               />

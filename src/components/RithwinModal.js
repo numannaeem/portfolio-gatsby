@@ -23,13 +23,13 @@ function RithwinModal () {
 			<div className=' md:p-5 p-4 flex flex-col'>
 			<p className='mb-2 text-2xl font-semibold text-secondary'>Hi Rithwin 👋</p>
 			<p className='mb-4 text-lg '>What do you want to download?</p>
-				<div className='flex flex-wrap gap-2'>
+				<div className='flex flex-wrap gap-3'>
 					{data.allContentfulPdf.edges.map(({ node }) => (
 						<button
 					onClick={() =>
 						window.open(node.pdf.url)
 					}
-					 className='text-start bg-gray-700 basis-[45%] grow hover:bg-gray-600 cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 rounded-md px-3 py-2 capitalize'>{node.pdf.title.slice(8)}</button>
+					 className='text-start text-lg bg-gray-700 basis-[45%] grow hover:bg-gray-600 cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 rounded-md px-4 py-3 capitalize'>{node.pdf.title.slice(8)}</button>
 					))}
 				</div>
 			</div>
