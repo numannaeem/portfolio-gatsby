@@ -111,7 +111,7 @@ const About = ({ data }) => {
 
 export const query = graphql`
   query MyQuery {
-    contentfulPdf(title: { eq: "Resume" }) {
+    contentfulPdf(title: { eq: "Numan_Resume" }) {
       pdf {
         file {
           url

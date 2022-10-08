@@ -7,24 +7,39 @@ import useCheckMobileScreen from '../mobileHook'
 import MemoryGame from '../components/MemoryGame'
 import SecretModal from '../components/SecretModal'
 import PasswordModal from '../components/PasswordModal'
+import { useEffect } from 'react'
 
 const links = ['about', 'projects', 'contact']
 
 const IndexPage = () => {
   const isMobile = useCheckMobileScreen()
   const [handClicks, setHandClicks] = React.useState(0)
+  const [touches, setTouches] = React.useState(0)
+
+  useEffect(() => {
+    const handleTouch = (e) => {
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+      if(touches%2 === 0 && e.touches.length === 2) setTouches(p => p+2)
+      else setTouches(0)
+    }
+    window.addEventListener('touchstart', handleTouch)
+    return (() => {
+      window.removeEventListener('touchstart', handleTouch)
+    })
+  })
 
   return (
     <Layout>
       <Seo title='home' />
       <SecretModal
-        handClicks={handClicks}
+        otherTrigger={handClicks === 5}
         setHandClicks={setHandClicks}
         trigger='memory'
       >
         <MemoryGame />
       </SecretModal>
-      <SecretModal trigger='password'>
+      <SecretModal otherTrigger={touches === 4} trigger='pass'>
         <PasswordModal />
       </SecretModal>
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>

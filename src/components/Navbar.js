@@ -24,7 +24,7 @@ const Navbar = () => {
         onDoubleClick={() => setSelectorHidden(p => !p)}
         className={`${
           offset > 30 ? 'bg-gray-700/40 shadow-xl backdrop-blur-xl' : ''
-        } md:py-4 py-3 overflow-hidden transition-colors select-none fixed top-0 z-50 w-full flex items-center px-5 justify-between`}
+        } md:py-4 py-2 overflow-hidden transition-colors select-none fixed top-0 z-50 w-full flex items-center px-5 justify-between`}
       >
         <AniLink
           hex='#FFA099'
@@ -35,8 +35,9 @@ const Navbar = () => {
         >
           <img
             alt='logo'
-            height={100}
-            width={100}
+            // height={100}
+            // width={100}
+            className='md:h-24 md:w-24 h-[86px] w-[86px]'
             src='/svgs/logo.svg'
           />
         </AniLink>

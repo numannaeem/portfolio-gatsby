@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Fade } from 'react-reveal'
 
-function SecretModal ({ children, handClicks, setHandClicks, trigger }) {
+function SecretModal ({ children, otherTrigger, setHandClicks, trigger }) {
   const [modalOpen, setModalOpen] = React.useState(false)
   const [innerModalOpen, setInnerModalOpen] = React.useState(false)
 
@@ -26,8 +26,8 @@ function SecretModal ({ children, handClicks, setHandClicks, trigger }) {
   let enteredString = ''
 
   React.useEffect(() => {
-    if (handClicks && handClicks === 5) openModal()
-  }, [handClicks])
+    if (otherTrigger) openModal()
+  }, [otherTrigger])
 
   let timeoutId
 
