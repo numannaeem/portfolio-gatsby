@@ -20,8 +20,8 @@ const IndexPage = () => {
     const handleTouch = (e) => {
       e.stopPropagation()
       e.stopImmediatePropagation()
-      if(touches%2 === 0 && e.touches.length === 2) setTouches(p => p+2)
-      else setTouches(0)
+      if(e.touches.length === 3) setTouches(p => p+3)
+      // else setTouches(0)
     }
     window.addEventListener('touchstart', handleTouch)
     return (() => {
@@ -39,7 +39,7 @@ const IndexPage = () => {
       >
         <MemoryGame />
       </SecretModal>
-      <SecretModal otherTrigger={touches === 4} trigger='pass'>
+      <SecretModal otherTrigger={touches === 6} setHandClicks={setTouches} trigger='pass'>
         <PasswordModal />
       </SecretModal>
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
