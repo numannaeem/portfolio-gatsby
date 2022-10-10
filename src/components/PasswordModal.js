@@ -13,12 +13,12 @@ function PasswordModal () {
       setTimeout(() => {
         setLoggedIn(true)
         setLoading(false)
-      }, 400)
+      }, 250)
     }
   }, [password])
 
   return (
-    <div className='mx-2 md:mx-0 bg-gray-700/50 rounded-lg shadow-2xl relative outline-none focus:outline-none'>
+    <div className='mx-2 bg-gray-700/50 rounded-lg shadow-2xl relative outline-none focus:outline-none'>
       {!loggedIn ? (
         <Fade>
           <div className={`p-6 flex flex-col`}>

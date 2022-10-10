@@ -15,6 +15,7 @@ const IndexPage = () => {
   const isMobile = useCheckMobileScreen()
   const [handClicks, setHandClicks] = React.useState(0)
   const [touches, setTouches] = React.useState(0)
+  const [modalOpen, setModalOpen] = React.useState(false)
 
   useEffect(() => {
     const handleTouch = (e) => {
@@ -33,13 +34,16 @@ const IndexPage = () => {
     <Layout>
       <Seo title='home' />
       <SecretModal
+       modalAlreadyOpen={modalOpen}
+       setModalAlreadyOpen={setModalOpen}
         otherTrigger={handClicks === 5}
         setHandClicks={setHandClicks}
         trigger='memory'
       >
         <MemoryGame />
       </SecretModal>
-      <SecretModal otherTrigger={touches === 6} setHandClicks={setTouches} trigger='pass'>
+      <SecretModal modalAlreadyOpen={modalOpen}
+      setModalAlreadyOpen={setModalOpen} otherTrigger={touches === 6} setHandClicks={setTouches} trigger='pass'>
         <PasswordModal />
       </SecretModal>
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>

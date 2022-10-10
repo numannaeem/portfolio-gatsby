@@ -117,7 +117,7 @@ function MemoryGame () {
 
   return (
     <div
-      className={`mx-2 md:mx-0 border border-secondary bg-gray-700/50 transition-colors md:p-3 p-1 rounded-lg shadow-2xl relative flex flex-col outline-none focus:outline-none`}
+      className={`mx-2 border border-secondary bg-gray-700/50 transition-colors md:p-3 p-1 rounded-lg shadow-2xl relative flex flex-col outline-none focus:outline-none`}
     >
       <ReactCanvasConfetti
         refConfetti={getInstance}
@@ -149,7 +149,7 @@ function MemoryGame () {
                 ? 'revealed'
                 : !disabled &&
                   'md:hover:-translate-y-1 md:hover:shadow-[#141414] hover:shadow-lg'
-            } select-none rounded-md transition-all duration-100 overflow-hidden shadow-lg basis-[21%] bg-transparent w-20 md:h-[104px] h-24`}
+            } select-none cursor-pointer rounded-md transition-all duration-100 overflow-hidden shadow-lg basis-[21%] bg-transparent w-20 md:h-[104px] h-24`}
           >
             <div className='tile-inner transition-transform duration-300 relative w-full h-full'>
               <div className='tile-front bg-gray-600 flex items-center justify-center absolute w-full h-full'>

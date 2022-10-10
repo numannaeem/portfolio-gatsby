@@ -13,9 +13,9 @@ const ArrowBtn = ({ dir, to }) => {
       to={to || '/'}
       className={`${dir === 'left' && 'button-left'} flex gap-2 items-center rounded-lg text-lg font-semibold border overflow-hidden w-fit p-3 transition-colors  hover:text-gray-900 text-secondary button-grow  after:bg-secondary border-secondary`}
     >
-      {dir == 'left' && <FaChevronLeft />}
+      {dir === 'left' && <FaChevronLeft />}
       {to ? to.substring(1)[0].toUpperCase() + to.substring(2) : 'Back'}
-      {dir == 'right' && <FaChevronRight />}
+      {dir === 'right' && <FaChevronRight />}
     </AniLink>
   ) 
   //   <AniLink
