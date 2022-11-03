@@ -18,6 +18,8 @@ function RithwinModal () {
     }
   `)
 
+  
+
   return (
     <Fade duration={600}>
       <div className='md:p-5 p-4 flex flex-col'>
@@ -32,7 +34,7 @@ function RithwinModal () {
               onClick={() => window.open(node.pdf.url)}
               className='text-start text-lg bg-gray-700 basis-[45%] grow hover:bg-gray-600 cursor-pointer transition-all hover:shadow-lg hover:-translate-y-0.5 rounded-md px-4 py-3 capitalize'
             >
-              {node.pdf.title.slice(8)}
+              {node.pdf.title.split('_').slice(1).join(' ')}
             </button>
           ))}
         </div>

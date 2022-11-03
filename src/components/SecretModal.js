@@ -35,8 +35,6 @@ function SecretModal ({
     }, 1)
   }
 
-  console.log("lolll");
-
   let enteredString = ''
 
   React.useEffect(() => {

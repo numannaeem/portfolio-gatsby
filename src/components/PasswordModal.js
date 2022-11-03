@@ -8,7 +8,7 @@ function PasswordModal () {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (password.toLowerCase() === 'rithmyrr') {
+    if (password.toLowerCase() === 'komban') {
       setLoading(true)
       setTimeout(() => {
         setLoggedIn(true)
