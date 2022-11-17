@@ -3,14 +3,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CursorContext } from './layout'
 
 const Navbar = () => {
-  const [offset, setOffset] = useState(window.pageYOffset)
+  const [offset, setOffset] = useState(0)
   const [selectorHidden, setSelectorHidden] = useState(true)
 
   const { cursor, setCursor } = useContext(CursorContext)
 
   useEffect(() => {
+    setOffset(window.scrollY)
     const scrollFn = () => {
-      setOffset(window.pageYOffset)
+      setOffset(window.scrollY)
     }
     window.addEventListener('scroll', scrollFn)
     return () => window.removeEventListener('scroll', scrollFn)

@@ -32,7 +32,7 @@ const About = ({ data }) => {
               placeholder='dominantColor'
             />
             <StaticImage
-              class=' w-64 shadow-2xl rounded-xl shrink-0 basis-96 object-top md:basis-72'
+              class=' w-64 rounded-xl shrink-0 basis-96 object-top md:basis-72'
               layout='constrained'
               src='../images/portrait_2.jpeg'
               alt='Me!'
