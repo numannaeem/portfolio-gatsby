@@ -24,16 +24,24 @@ const About = ({ data }) => {
         <Fade>
           <div className='text-4xl text-secondary flex flex-col md:flex-row items-start md:items-end gap-9'>
             <StaticImage
-              class='border-4 w-64 rounded-xl shrink-0 basis-96 object-top md:basis-72  border-primary'
+              class=' md:w-72 w-64 absolute blur-3xl md:blur-3xl shrink-0 basis-96 object-top md:basis-72'
               layout='constrained'
-              src='../images/portrait.jpg'
+              src='../images/portrait_2.jpeg'
               alt='Me!'
               aspectRatio={3 / 4.5}
               placeholder='dominantColor'
             />
+            <StaticImage
+              class=' w-64 shadow-2xl rounded-xl shrink-0 basis-96 object-top md:basis-72'
+              layout='constrained'
+              src='../images/portrait_2.jpeg'
+              alt='Me!'
+              aspectRatio={3 / 4.5}
+              placeholder='svg'
+            />
             <div>
-              <h1 className=' mb-3 font-light'>hi, I'm</h1>
-              <h1 className=' font-bold'>Numan Naeem.</h1>
+              <h1 className='mb-3 font-light'>hi, I'm</h1>
+              <h1 className='font-bold'>Numan Naeem.</h1>
               <div className='text-lg mt-7 text-white'>
                 <p>
                   A 21 year-old web developer interested in all things coding.

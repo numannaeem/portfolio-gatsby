@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CursorContext } from './layout'
 
 const Navbar = () => {
-  const [offset, setOffset] = useState(0)
+  const [offset, setOffset] = useState(window.pageYOffset)
   const [selectorHidden, setSelectorHidden] = useState(true)
 
   const { cursor, setCursor } = useContext(CursorContext)
