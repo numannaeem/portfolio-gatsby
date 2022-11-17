@@ -23,21 +23,21 @@ const About = ({ data }) => {
       <div className='grow gap-12 bg-gray-900 mt-5 px-5 flex flex-col self-center w-full lg:w-2/3'>
         <Fade>
           <div className='text-4xl text-secondary flex flex-col md:flex-row items-start md:items-end gap-9'>
-            <StaticImage
-              class=' md:w-72 w-64 absolute blur-3xl md:blur-3xl shrink-0 basis-96 object-top md:basis-72'
-              layout='constrained'
-              src='../images/portrait_2.jpeg'
-              alt='Me!'
-              aspectRatio={3 / 4.5}
-              placeholder='dominantColor'
-            />
+            <div className=' md:w-72 w-64 absolute blur-3xl md:blur-3xl shrink-0 basis-96 object-top md:basis-72'>
+              <StaticImage
+                layout='constrained'
+                src='../images/portrait_2.jpeg'
+                aspectRatio={3 / 4.5}
+                placeholder='none'
+              />
+            </div>
             <StaticImage
               class=' w-64 rounded-xl shrink-0 basis-96 object-top md:basis-72'
               layout='constrained'
               src='../images/portrait_2.jpeg'
               alt='Me!'
               aspectRatio={3 / 4.5}
-              placeholder='svg'
+              placeholder='dominantColor'
             />
             <div>
               <h1 className='mb-3 font-light'>hi, I'm</h1>
