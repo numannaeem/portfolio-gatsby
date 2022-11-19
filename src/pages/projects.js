@@ -68,6 +68,7 @@ const styles = tag => {
 }
 
 const Projects = ({ data }) => {
+  
   return (
     <Layout>
       <Seo title='projects' />
@@ -88,33 +89,44 @@ const Projects = ({ data }) => {
           {data.allContentfulProject.nodes.map((node, i) => (
             <div
               key={i}
-              className={`flex flex-col md:gap-3 md:mb-3 border-2 ${
+              className={`group cursor-pointer relative flex flex-col md:gap-2 md:mb-3 border-2 ${
                 i % 3 === 0
                   ? 'border-primary'
                   : i % 3 === 1
                   ? 'border-tertiary'
                   : 'border-secondary'
               } overflow-hidden md:border-0 md:overflow-visible rounded-xl`}
+              onClick={() => {
+                  window.open(node.link, '_blank')
+              }}
             >
+             {/* <Fade top delay={500} distance={'0px'}> */}
+              <div className={`absolute h-[90%] top-[5%] w-[90%] left-[5%] transition-colors delay-75 duration-500 rounded-full blur-2xl 
+                ${ i % 3 === 0
+                    ? ' group-hover:bg-primary/50 '
+                    : i % 3 === 1
+                    ? ' group-hover:bg-tertiary/50 '
+                    : ' group-hover:bg-secondary/50 '
+                } `}></div>
+             {/* </Fade> */}
               <Fade distance={'40px'} top>
-                <div className='flex flex-col gap-4 bg-gray-700/40 p-4 md:border-2 border-tertiary md:rounded-lg '>
+                <div className='flex flex-col gap-4 z-10 bg-gray-800 p-4  border-tertiary  md:rounded-lg '>
                   <div
                     className={`flex flex-wrap gap-2 justify-start items-end`}
                   >
-                    <CustomLink
+                    <p
                       target={'_blank'}
                       to={node.link}
-                      classes={`${
+                      className={`${
                         i % 3 === 0
-                          ? 'text-primary after:bg-primary'
+                          ? 'text-primary'
                           : i % 3 === 1
-                          ? 'text-tertiary after:bg-tertiary'
-                          : 'text-secondary after:bg-secondary'
-                      }`}
-                      className='font-bold w-fit text-2xl md:text-3xl md:text-tertiary md:after:bg-tertiary'
+                          ? 'text-tertiary'
+                          : 'text-secondary'
+                      } font-bold w-fit text-2xl md:text-3xl `}
                     >
                       {node.title}
-                    </CustomLink>
+                    </p>
                     <button
                       title='Repo Link'
                       className='repo-link ml-2 w-fit hover:text-white text-gray-300 text-2xl hover:-translate-y-1  transition-all'
@@ -152,7 +164,7 @@ const Projects = ({ data }) => {
                 }  md:gap-3`}
               >
                 <Fade distance={'30px'} left={i % 2} right={!(i % 2)}>
-                  <div className='shrink-0 border-primary md:border-2 self-stretch flex flex-col w-full md:w-5/12 md:rounded-lg  overflow-hidden'>
+                  <div className='z-20 shrink-0 md:-2 self-stretch flex flex-col w-full md:w-5/12 md:rounded-lg  overflow-hidden'>
                     <GatsbyImage
                       className='h-full'
                       alt={node.title}
@@ -161,7 +173,7 @@ const Projects = ({ data }) => {
                   </div>
                 </Fade>
                 <Fade distance={'30px'} right={i % 2} left={!(i % 2)}>
-                  <div className='p-4 text-justify text-lg leading-normal border-secondary md:border-2 bg-gray-700/50 md:rounded-lg md:p-4 flex-col'>
+                  <div className='z-10 p-4 text-justify text-lg leading-normal md:-2 bg-gray-800 md:rounded-lg md:p-4 flex-col'>
                     <p>{node.description.description}</p>
                   </div>
                 </Fade>
