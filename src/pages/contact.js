@@ -28,25 +28,25 @@ const Contact = () => {
   const links = [
     {
       to: 'mailto:dev@numxn.me',
-      classes: 'text-sky-300 after:bg-sky-300',
+      className: 'text-sky-300 after:bg-sky-300',
       name: 'dev@numxn.me',
       icon: <FaRegEnvelope />
     },
     {
       to: 'https://instagram.com/num4n_',
-      classes: 'text-purple-300 after:bg-purple-300',
+      className: 'text-purple-300 after:bg-purple-300',
       name: 'num4n_',
       icon: <FaInstagram />
     },
     {
       to: 'https://linkedin.com/in/numxn',
-      classes: 'text-blue-300 after:bg-blue-300',
+      className: 'text-blue-300 after:bg-blue-300',
       name: 'Numan Naeem',
       icon: <FaLinkedinIn />
     },
     {
       to: 'https://github.com/numannaeem',
-      classes: 'text-gray-300 after:bg-gray-300',
+      className: 'text-gray-300 after:bg-gray-300',
       name: 'numannaeem',
       icon: <FaGithub />
     }
@@ -107,9 +107,8 @@ const Contact = () => {
               <div key={link.name} className=' text-lg mb-2'>
                 <CustomLink
                   target={'_blank'}
-                  className='flex gap-2 items-center w-fit'
                   to={link.to}
-                  classes={link.classes}
+                  className={`${link.className} flex gap-2 items-center w-fit`}
                 >
                   {link.icon}
                   {link.name}

@@ -7,6 +7,7 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { FaGithub } from 'react-icons/fa'
 import { Fade } from 'react-reveal'
+import useCheckMobileScreen from '../mobileHook'
 
 const colors = {
   'react.js': {
@@ -68,7 +69,8 @@ const styles = tag => {
 }
 
 const Projects = ({ data }) => {
-  
+  const isMobile = useCheckMobileScreen()
+
   return (
     <Layout>
       <Seo title='projects' />
@@ -80,7 +82,7 @@ const Projects = ({ data }) => {
             <CustomLink
               target={'_blank'}
               to='https://github.com/numannaeem'
-              classes={'text-gray-300 after:bg-gray-300'}
+              className={'text-gray-300 after:bg-gray-300'}
             >
               Github&nbsp;profile
             </CustomLink>
@@ -89,47 +91,64 @@ const Projects = ({ data }) => {
           {data.allContentfulProject.nodes.map((node, i) => (
             <div
               key={i}
-              className={`group cursor-pointer relative flex flex-col md:gap-2 md:mb-3 border-2 ${
+              className={`group md:cursor-pointer relative flex flex-col md:gap-2 border-2 md:mb-3 ${
                 i % 3 === 0
                   ? 'border-primary'
                   : i % 3 === 1
                   ? 'border-tertiary'
                   : 'border-secondary'
-              } overflow-hidden md:border-0 md:overflow-visible rounded-xl`}
+              } overflow-hidden md:border-none md:overflow-visible rounded-xl`}
               onClick={() => {
+                if (!isMobile) {
                   window.open(node.link, '_blank')
+                }
               }}
             >
-             {/* <Fade top delay={500} distance={'0px'}> */}
-              <div className={`absolute h-[90%] top-[5%] w-[90%] left-[5%] transition-colors delay-75 duration-500 rounded-full blur-2xl 
-                ${ i % 3 === 0
+              <div
+                className={`hidden md:block absolute h-[90%] top-[5%] w-[90%] left-[5%] transition-colors delay-75 duration-500 rounded-full blur-2xl 
+                ${
+                  i % 3 === 0
                     ? ' group-hover:bg-primary/50 '
                     : i % 3 === 1
                     ? ' group-hover:bg-tertiary/50 '
                     : ' group-hover:bg-secondary/50 '
-                } `}></div>
-             {/* </Fade> */}
-              <Fade distance={'40px'} top>
+                } `}
+              ></div>
+              <Fade distance={'40px'} top={!isMobile}>
                 <div className='flex flex-col gap-4 z-10 bg-gray-800 p-4  border-tertiary  md:rounded-lg '>
                   <div
                     className={`flex flex-wrap gap-2 justify-start items-end`}
                   >
-                    <p
-                      target={'_blank'}
-                      to={node.link}
-                      className={`${
-                        i % 3 === 0
-                          ? 'text-primary'
-                          : i % 3 === 1
-                          ? 'text-tertiary'
-                          : 'text-secondary'
-                      } font-bold w-fit text-2xl md:text-3xl `}
-                    >
-                      {node.title}
-                    </p>
+                    {!isMobile ? (
+                      <p
+                        className={`${
+                          i % 3 === 0
+                            ? 'text-primary'
+                            : i % 3 === 1
+                            ? 'text-tertiary'
+                            : 'text-secondary'
+                        } font-bold w-fit text-2xl md:text-3xl `}
+                      >
+                        {node.title}
+                      </p>
+                    ) : (
+                      <CustomLink
+                        target={'_blank'}
+                        to={node.link}
+                        className={`${
+                          i % 3 === 0
+                            ? 'text-primary'
+                            : i % 3 === 1
+                            ? 'text-tertiary'
+                            : 'text-secondary'
+                        } font-bold w-fit text-2xl md:text-3xl `}
+                      >
+                        {node.title}
+                      </CustomLink>
+                    )}
                     <button
                       title='Repo Link'
-                      className='repo-link ml-2 w-fit hover:text-white text-gray-300 text-2xl hover:-translate-y-1  transition-all'
+                      className='repo-link ml-2 w-fit self-center hover:text-white text-gray-300 text-2xl hover:-translate-y-1  transition-all'
                       onClick={e => {
                         e.stopPropagation()
                         window.open(node.repoLink, '_blank')
@@ -138,7 +157,7 @@ const Projects = ({ data }) => {
                       <FaGithub />
                     </button>
                     <span
-                      className='font-normal w-full md:w-auto text-sm italic text-gray-300'
+                      className='font-normal leading-6 w-full md:w-auto text-sm italic text-gray-300'
                       title={!node.completed && 'Work In Progress'}
                     >
                       ({node.completed ? `completed ${node.date}` : 'WIP'})
@@ -161,9 +180,13 @@ const Projects = ({ data }) => {
               <div
                 className={`flex flex-col ${
                   i % 2 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }  md:gap-3`}
+                }  md:gap-2`}
               >
-                <Fade distance={'30px'} left={i % 2} right={!(i % 2)}>
+                <Fade
+                  distance={'30px'}
+                  left={!isMobile && i % 2}
+                  right={!isMobile && !(i % 2)}
+                >
                   <div className='z-20 shrink-0 md:-2 self-stretch flex flex-col w-full md:w-5/12 md:rounded-lg  overflow-hidden'>
                     <GatsbyImage
                       className='h-full'
@@ -172,7 +195,11 @@ const Projects = ({ data }) => {
                     />
                   </div>
                 </Fade>
-                <Fade distance={'30px'} right={i % 2} left={!(i % 2)}>
+                <Fade
+                  distance={'30px'}
+                  right={!isMobile && i % 2}
+                  left={!isMobile && !(i % 2)}
+                >
                   <div className='z-10 p-4 text-justify text-lg leading-normal md:-2 bg-gray-800 md:rounded-lg md:p-4 flex-col'>
                     <p>{node.description.description}</p>
                   </div>

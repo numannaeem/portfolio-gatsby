@@ -69,7 +69,7 @@ const IndexPage = () => {
             return (
               <>
                 <Fade ssrReveal duration={700} delay={700 + 500 * i} key={link}>
-                  <CustomLink className={'font-link text-3xl'} to={`/${link}`}>
+                  <CustomLink className={'font-link text-3xl text-tertiary after:bg-tertiary'} to={`/${link}`}>
                     {link}
                   </CustomLink>
                 </Fade>

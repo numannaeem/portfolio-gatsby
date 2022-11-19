@@ -2,10 +2,10 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PropTypes from "prop-types"
 import React from 'react'
 
-const CustomLink = ({to, children, target, classes, className}) => {
+const CustomLink = ({to, children, target, className}) => {
 	if(target === "_blank") {
 		return (
-			<a target={target} className={`${className || ''} link-grow ${classes}`} href={to}>{children}</a>
+			<a target={target} className={`${className || ''} link-grow`} href={to}>{children}</a>
 		)
 	}
 	return (
@@ -14,13 +14,13 @@ const CustomLink = ({to, children, target, classes, className}) => {
 		cover
 		direction="up"
 		duration={0.5}
-		target={target} className={`${className || ''} link-grow ${classes}`} to={to}>{children}</AniLink>
+		target={target} className={`${className || ''} link-grow`} to={to}>{children}</AniLink>
 	)
 }
 
 CustomLink.defaultProps = {
 	target: "_self",
-	classes: 'text-tertiary after:bg-tertiary'
+	className: 'text-tertiary after:bg-tertiary'
 }
 
 CustomLink.propTypes = {
