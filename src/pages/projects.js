@@ -91,7 +91,7 @@ const Projects = ({ data }) => {
           {data.allContentfulProject.nodes.map((node, i) => (
             <div
               key={i}
-              className={`group md:cursor-pointer relative flex flex-col md:gap-2 border-2 md:mb-3 ${
+              className={`group md:cursor-pointer relative flex flex-col md:gap-2 border md:mb-3 ${
                 i % 3 === 0
                   ? 'border-primary'
                   : i % 3 === 1
@@ -105,17 +105,17 @@ const Projects = ({ data }) => {
               }}
             >
               <div
-                className={`hidden md:block absolute h-[90%] top-[5%] w-[90%] left-[5%] transition-colors delay-75 duration-500 rounded-full blur-2xl 
+                className={`hidden md:block absolute h-[90%] top-[5%] w-[80%] left-[10%] transition-colors delay-75 duration-500 rounded-full blur-3xl 
                 ${
                   i % 3 === 0
-                    ? ' group-hover:bg-primary/50 '
+                    ? ' group-hover:bg-primary/60 '
                     : i % 3 === 1
-                    ? ' group-hover:bg-tertiary/50 '
-                    : ' group-hover:bg-secondary/50 '
+                    ? ' group-hover:bg-tertiary/60 '
+                    : ' group-hover:bg-secondary/60 '
                 } `}
               ></div>
               <Fade distance={'40px'} top={!isMobile}>
-                <div className='flex flex-col gap-4 z-10 bg-gray-800 p-4  border-tertiary  md:rounded-lg '>
+                <div className='flex flex-col gap-4 z-10 bg-gray-800/80 p-4 md:rounded-lg '>
                   <div
                     className={`flex flex-wrap gap-2 justify-start items-end`}
                   >
@@ -200,7 +200,7 @@ const Projects = ({ data }) => {
                   right={!isMobile && i % 2}
                   left={!isMobile && !(i % 2)}
                 >
-                  <div className='z-10 p-4 text-justify text-lg leading-normal md:-2 bg-gray-800 md:rounded-lg md:p-4 flex-col'>
+                  <div className='z-10 p-4 text-justify text-lg leading-normal md:-2 bg-gray-800/80 md:rounded-lg md:p-4 flex-col'>
                     <p>{node.description.description}</p>
                   </div>
                 </Fade>
