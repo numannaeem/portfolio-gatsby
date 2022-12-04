@@ -6,10 +6,11 @@ import CustomLink from '../components/CustomLink'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { Fade } from 'react-reveal'
+import { FaAngleDown, FaArrowDown } from 'react-icons/fa'
 
 const About = ({ data }) => {
   const msToYears = ms => {
-    return (ms / (1000 * 60 * 60 * 24 * 365)).toFixed(7)
+    return (ms / (1000 * 60 * 60 * 24 * 365)).toFixed(9)
   }
 
   const [age, setAge] = useState(
@@ -19,7 +20,7 @@ const About = ({ data }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setAge(msToYears(Date.now() - new Date('2001-02-23').getTime()))
-    }, 500)
+    }, 50)
     return () => clearInterval(interval)
   }, [])
 
@@ -60,17 +61,16 @@ const About = ({ data }) => {
               <div className='text-lg mt-7 text-white'>
                 <p>
                   A {Math.floor(age)}
-                  <span className='text-sm font-light'>
-                    {
-                      //decimal part of age
-                      age.slice(2)
-                    }
+                  <span
+                    style={{ fontFamily: 'monospace' }}
+                    className='text-sm font-light'
+                  >
+                    {age.slice(2)}
                   </span>{' '}
                   year-old web developer interested in all things coding.
-                  Currently pursuing my Bachelor's degree in CS Engineering.
-                  Though I'm comfortable building full-stack applications for
-                  the web, my primary interest is in UI Design and experimenting
-                  with the latest trends in front-end development.
+                  <br />
+                  I build full-stack applications for the web.
+                  Currently pursuing a Bachelor's degree in CS Engineering.
                 </p>
                 <p className='mt-5'>
                   When I'm bored, you'll find me playing Chess, taking photos of
@@ -96,23 +96,16 @@ const About = ({ data }) => {
             </h3>
           </Fade>
           <Fade delay={400} cascade top>
-            <ul className='list-disc space-y-2 list-inside text-lg'>
+            <ul className='space-y-2 list-inside text-lg historyList'>
               <li>
                 Born on the 23<sup>rd</sup> of February, 2001, in Riyadh, Saudi
                 Arabia 🇸🇦.
               </li>
+               <FaArrowDown className='text-gray-200/80'  />
               <li>
-                Lived in Saudi Arabia for the next 15 years. Changed schools a
-                few times, but spent the most time at{' '}
-                <CustomLink target='_blank' to='https://alyasmin.edu.sa/'>
-                  Al&#8209;Yasmin&nbsp;Int'l&nbsp;School,&nbsp;Riyadh
-                </CustomLink>
-                .
+               <b>*screaming internally*</b>
               </li>
-              <li>
-                Moved to Kerala, India for my 11th and 12th grade. This was
-                about the time I realized that I loved to code.
-              </li>
+               <FaArrowDown  className='text-gray-200/80' />
               <li>
                 It's{' '}
                 {new Date(Date.now()).toLocaleString('default', {
@@ -121,9 +114,9 @@ const About = ({ data }) => {
                 })}
                 <sup>{superscript(new Date(Date.now()).getDate())}</sup>,{' '}
                 {new Date(Date.now()).getFullYear()}, and I'm in my fourth year
-                of CS engineering at{' '}
+                of engineering at{' '}
                 <CustomLink target={'_blank'} to='https://nmamit.nitte.edu.in'>
-                  NMAMIT, Karnataka
+                  NMAMIT, India
                 </CustomLink>
                 .
               </li>
