@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ArrowBtn from '../components/ArrowBtn'
 import CustomLink from '../components/CustomLink'
 import Layout from '../components/layout'
@@ -8,6 +8,21 @@ import Seo from '../components/seo'
 import { Fade } from 'react-reveal'
 
 const About = ({ data }) => {
+  const msToYears = ms => {
+    return (ms / (1000 * 60 * 60 * 24 * 365)).toFixed(7)
+  }
+
+  const [age, setAge] = useState(
+    msToYears(Date.now() - new Date('2001-02-23').getTime())
+  )
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAge(msToYears(Date.now() - new Date('2001-02-23').getTime()))
+    }, 500)
+    return () => clearInterval(interval)
+  }, [])
+
   const superscript = i => {
     let j = i % 10,
       k = i % 100
@@ -23,7 +38,7 @@ const About = ({ data }) => {
       <div className='grow gap-12 bg-gray-900 mt-5 px-5 flex flex-col self-center w-full lg:w-2/3'>
         <Fade>
           <div className='text-4xl text-secondary flex flex-col md:flex-row items-start md:items-end gap-9'>
-            <div className=' md:w-72 w-64 absolute blur-3xl md:blur-3xl shrink-0 basis-96 object-top md:basis-72'>
+            <div className=' md:w-72 w-64 absolute blur-3xl shrink-0 basis-96 object-top md:basis-72'>
               <StaticImage
                 layout='constrained'
                 src='../images/portrait_2.jpeg'
@@ -44,7 +59,14 @@ const About = ({ data }) => {
               <h1 className='font-bold'>Numan Naeem.</h1>
               <div className='text-lg mt-7 text-white'>
                 <p>
-                  A 21 year-old web developer interested in all things coding.
+                  A {Math.floor(age)}
+                  <span className='text-sm font-light'>
+                    {
+                      //decimal part of age
+                      age.slice(2)
+                    }
+                  </span>{' '}
+                  year-old web developer interested in all things coding.
                   Currently pursuing my Bachelor's degree in CS Engineering.
                   Though I'm comfortable building full-stack applications for
                   the web, my primary interest is in UI Design and experimenting

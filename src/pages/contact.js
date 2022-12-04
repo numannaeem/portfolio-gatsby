@@ -123,7 +123,7 @@ const Contact = () => {
             className={`${(sending || sent) &&
               'pointer-events-none'} relative transition-opacity w-full shadow-2xl mt-3 mb-6 bg-gray-800 p-4 rounded-lg  flex text-white flex-col gap-3 justify-start items-start`}
             onSubmit={sendMessage}
-            onChange={handleChange}
+            // onChange={handleChange}
           >
             <div
               className={`${
@@ -175,6 +175,7 @@ const Contact = () => {
                 className='grow transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
                 type={'text'}
                 value={formData.name}
+                onChange={handleChange}
                 name='name'
                 placeholder='Name'
                 required
@@ -183,6 +184,7 @@ const Contact = () => {
                 className='grow-[5] transition-colors focus:border-gray-500 outline-none bg-gray-800 border-gray-700 border-2 px-3 py-2 rounded-md'
                 type={'email'}
                 value={formData.email}
+                onChange={handleChange}
                 name='email'
                 placeholder='Email (so I can get back to you)'
                 required
@@ -192,6 +194,7 @@ const Contact = () => {
               rows={4}
               className=' bg-gray-800 transition-colors focus:border-gray-500 outline-none border-gray-700 border-2 px-3 py-2 rounded-md w-full'
               value={formData.message}
+              onChange={handleChange}
               name='message'
               placeholder='Tell me anything and everything!'
               required

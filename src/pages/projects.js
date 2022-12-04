@@ -108,7 +108,7 @@ const Projects = ({ data }) => {
                 className={`hidden md:block absolute h-[90%] top-[5%] w-[80%] left-[10%] transition-colors delay-75 duration-500 rounded-full blur-3xl 
                 ${
                   i % 3 === 0
-                    ? ' group-hover:bg-primary/60 '
+                    ? ' group-hover:bg-primary/70 '
                     : i % 3 === 1
                     ? ' group-hover:bg-tertiary/60 '
                     : ' group-hover:bg-secondary/60 '
