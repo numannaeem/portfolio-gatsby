@@ -103,7 +103,7 @@ const About = ({ data }) => {
               </li>
                <FaArrowDown className='text-gray-200/80'  />
               <li>
-               <b>*screaming internally*</b>
+               <b>*aimless existence*</b>
               </li>
                <FaArrowDown  className='text-gray-200/80' />
               <li>
