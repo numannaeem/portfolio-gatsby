@@ -68,9 +68,8 @@ const About = ({ data }) => {
                     {age.slice(2)}
                   </span>{' '}
                   year-old web developer interested in all things coding.
-                  <br />
-                  I build full-stack applications for the web.
-                  Currently pursuing a Bachelor's degree in CS Engineering.
+                  <br />I build full-stack applications for the web. Currently
+                  pursuing a Bachelor's degree in CS Engineering.
                 </p>
                 <p className='mt-5'>
                   When I'm bored, you'll find me playing Chess, taking photos of
@@ -101,20 +100,22 @@ const About = ({ data }) => {
                 Born on the 23<sup>rd</sup> of February, 2001, in Riyadh, Saudi
                 Arabia 🇸🇦.
               </li>
-               <FaArrowDown className='text-gray-200/80'  />
+              <FaArrowDown className='text-gray-200/80' />
               <li>
-               <b>*aimless existence*</b>
+                <b>*aimless existence*</b>
               </li>
-               <FaArrowDown  className='text-gray-200/80' />
+              <FaArrowDown className='text-gray-200/80' />
               <li>
-                It's{' '}
+                It's the{' '}
                 {new Date(Date.now()).toLocaleString('default', {
-                  day: '2-digit',
+                  day: '2-digit'
+                }) / 1}
+                <sup>{superscript(new Date(Date.now()).getDate())}</sup> of{' '}
+                {new Date(Date.now()).toLocaleString('default', {
                   month: 'long'
                 })}
-                <sup>{superscript(new Date(Date.now()).getDate())}</sup>,{' '}
-                {new Date(Date.now()).getFullYear()}, and I'm in my fourth year
-                of engineering at{' '}
+                , {new Date(Date.now()).getFullYear()}, and I'm in my fourth
+                year of engineering at{' '}
                 <CustomLink target={'_blank'} to='https://nmamit.nitte.edu.in'>
                   NMAMIT, India
                 </CustomLink>
