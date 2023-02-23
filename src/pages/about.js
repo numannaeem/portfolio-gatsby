@@ -6,21 +6,19 @@ import CustomLink from '../components/CustomLink'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import { Fade } from 'react-reveal'
-import { FaAngleDown, FaArrowDown } from 'react-icons/fa'
+import { FaArrowDown } from 'react-icons/fa'
 
 const About = ({ data }) => {
-  const msToYears = ms => {
-    return (ms / (1000 * 60 * 60 * 24 * 365)).toFixed(9)
-  }
+  const calculateAge = () =>
+    ((new Date() - new Date('2001-02-23 00:00')) / 31557600000).toFixed(10) //milliseconds in an year
 
-  const [age, setAge] = useState(
-    msToYears(Date.now() - new Date('2001-02-23').getTime())
-  )
+  const [age, setAge] = useState(calculateAge())
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAge(msToYears(Date.now() - new Date('2001-02-23').getTime()))
+      setAge(calculateAge())
     }, 50)
+
     return () => clearInterval(interval)
   }, [])
 
