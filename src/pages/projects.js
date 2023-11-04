@@ -61,6 +61,18 @@ const colors = {
   razorpay: {
     bg: 'bg-[#020328]',
     text: 'text-[#4682e3]'
+  },
+  graphql: {
+    bg: 'bg-[#ffffff]',
+    text: 'text-[#e10098]'
+  },
+  typescript: {
+    bg: 'bg-[#3178c6]',
+    text: 'text-[#ffffff]'
+  },
+  planetscale: {
+    bg: 'bg-[#ffffff]',
+    text: 'text-black'
   }
 }
 
