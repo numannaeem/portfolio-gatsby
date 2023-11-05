@@ -65,8 +65,7 @@ const About = ({ data }) => {
                   >
                     {age.slice(2)}
                   </span>{' '}
-                  year-old software developer interested in all things coding.
-                  <br />Completed my Bachelor's degree in Computer Science at NMAMIT, Nitte.
+                  year-old software developer from Kerala, India. Primarily experienced in web development using React & Node, but I've dabbled my feet in several other technologies.
                 </p>
                 <p className='mt-5'>
                 I love The Strokes, playing chess, and taking pictures of the clouds.
