@@ -65,13 +65,14 @@ const About = ({ data }) => {
                   >
                     {age.slice(2)}
                   </span>{' '}
-                  year-old web developer interested in all things coding.
-                  <br />I build full-stack applications for the web. Currently
-                  pursuing a Bachelor's degree in CS Engineering.
+                  year-old software developer interested in all things coding.
+                  <br />
+                  Completed my Bachelor's degree in Computer Science at NMAMIT,
+                  Nitte.
                 </p>
                 <p className='mt-5'>
-                  When I'm bored, you'll find me playing Chess, taking photos of
-                  the sky, or watching the most random videos on YouTube.
+                  I love The Strokes, playing chess, and taking pictures of the
+                  clouds.
                 </p>
                 <button
                   className='rounded-lg text-lg font-semibold mt-6 border-2 w-fit py-2 px-3 transition-colors hover:text-gray-900 text-primary button-grow after:bg-primary border-primary'
@@ -112,10 +113,14 @@ const About = ({ data }) => {
                 {new Date(Date.now()).toLocaleString('default', {
                   month: 'long'
                 })}
-                , {new Date(Date.now()).getFullYear()}, and I'm in my fourth
-                year of engineering at{' '}
-                <CustomLink target={'_blank'} to='https://nmamit.nitte.edu.in'>
-                  NMAMIT, India
+                , {new Date(Date.now()).getFullYear()}, and I'm a Software
+                Developer Engineer at{' '}
+                <CustomLink
+                  target={'_blank'}
+                  className={'text-[#01a982] after:bg-[#01a982]'}
+                  to='https://www.hpe.com/'
+                >
+                  Hewlett Packard Enterprise
                 </CustomLink>
                 .
               </li>
