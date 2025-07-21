@@ -17,13 +17,20 @@ const NotFoundPage = () => (
           animationData: animationData,
           rendererSettings: {
             preserveAspectRatio: 'xMidYMid slice'
-          },
+          }
         }}
-        width={"80%"}
+        width={'80%'}
         height={400}
       />
-      <h1 className='mt-5 font-semibold text-xl md:text-2xl text-primary'>What on earth are you doing here?</h1>
-      <p className='px-4 text-lg text-gray-200 font-light'>This page doesn't exist, but worry not! <Link className='hover:underline text-yellow-200' to='/'>Go Home</Link></p>
+      <h1 className='mt-5 font-semibold text-xl md:text-2xl text-primary'>
+        What on earth are you doing here?
+      </h1>
+      <p className='px-4 text-lg text-gray-200 font-light'>
+        This page doesn't exist, perhaps you should{' '}
+        <Link className='hover:underline text-yellow-200' to='/'>
+          head home
+        </Link>
+      </p>
     </div>
   </Layout>
 )

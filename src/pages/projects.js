@@ -74,7 +74,7 @@ const Projects = ({ data }) => {
   return (
     <Layout>
       <Seo title='projects' />
-      <div className='grow gap-10 mt-5 px-5 flex flex-col self-center w-full md:w-5/6 lg:w-3/4 xl:w-2/3'>
+      <div className='grow mt-5 px-5 flex flex-col self-center w-full md:w-5/6 lg:w-3/4 xl:w-2/3'>
         <div className='flex flex-col gap-6 md:gap-10'>
           <h2 className='text-xl mb-3 md:mb-0'>
             A <sup className='text-base'>limited</sup> selection of projects
@@ -209,9 +209,8 @@ const Projects = ({ data }) => {
           ))}
         </div>
 
-        <div className='mt-auto flex justify-between'>
-          <ArrowBtn dir={'left'} to='/about' />
-          <ArrowBtn dir={'right'} to='/contact' />
+        <div className='mt-8 flex justify-end'>
+          <ArrowBtn dir={'right'} to='/about' />
         </div>
       </div>
     </Layout>

@@ -9,7 +9,7 @@ import SecretModal from '../components/SecretModal'
 import PasswordModal from '../components/PasswordModal'
 import { useEffect } from 'react'
 
-const links = ['about', 'projects', 'contact']
+const links = ['about', 'projects']
 
 const IndexPage = () => {
   const isMobile = useCheckMobileScreen()
@@ -18,32 +18,37 @@ const IndexPage = () => {
   const [modalOpen, setModalOpen] = React.useState(false)
 
   useEffect(() => {
-    const handleTouch = (e) => {
+    const handleTouch = e => {
       e.stopPropagation()
       e.stopImmediatePropagation()
-      if(e.touches.length === 3) setTouches(p => p+3)
+      if (e.touches.length === 3) setTouches(p => p + 3)
       // else setTouches(0)
     }
     window.addEventListener('touchstart', handleTouch)
-    return (() => {
+    return () => {
       window.removeEventListener('touchstart', handleTouch)
-    })
+    }
   })
 
   return (
     <Layout>
       <Seo title='home' />
       <SecretModal
-       modalAlreadyOpen={modalOpen}
-       setModalAlreadyOpen={setModalOpen}
+        modalAlreadyOpen={modalOpen}
+        setModalAlreadyOpen={setModalOpen}
         otherTrigger={handClicks === 5}
         setHandClicks={setHandClicks}
         trigger='memory'
       >
         <MemoryGame />
       </SecretModal>
-      <SecretModal modalAlreadyOpen={modalOpen}
-      setModalAlreadyOpen={setModalOpen} otherTrigger={touches === 6} setHandClicks={setTouches} trigger='pass'>
+      <SecretModal
+        modalAlreadyOpen={modalOpen}
+        setModalAlreadyOpen={setModalOpen}
+        otherTrigger={touches === 6}
+        setHandClicks={setTouches}
+        trigger='pass'
+      >
         <PasswordModal />
       </SecretModal>
       <div className='select-none flex p-5 ml-3 flex-col gap-5 my-auto md:items-center'>
@@ -69,7 +74,12 @@ const IndexPage = () => {
             return (
               <>
                 <Fade ssrReveal duration={700} delay={700 + 500 * i} key={link}>
-                  <CustomLink className={'font-link text-3xl text-tertiary after:bg-tertiary'} to={`/${link}`}>
+                  <CustomLink
+                    className={
+                      'font-link text-3xl text-tertiary after:bg-tertiary'
+                    }
+                    to={`/${link}`}
+                  >
                     {link}
                   </CustomLink>
                 </Fade>

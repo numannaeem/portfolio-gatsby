@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
-import ArrowBtn from '../components/ArrowBtn'
-import CustomLink from '../components/CustomLink'
-import Layout from '../components/layout'
-import Seo from '../components/seo'
+import CustomLink from './CustomLink'
 import {
-  FaRegEnvelope,
   FaLinkedinIn,
   FaGithub,
   FaInstagram
@@ -12,7 +8,7 @@ import {
 import { BiLoaderAlt } from 'react-icons/bi'
 import { FiSend } from 'react-icons/fi'
 import animationData from '../lotties/success.json'
-import {Fade} from 'react-reveal'
+import { Fade } from 'react-reveal'
 import Lottie from 'react-lottie'
 
 const Contact = () => {
@@ -27,15 +23,9 @@ const Contact = () => {
   const [animCompleted, setAnimCompleted] = useState(false)
   const links = [
     {
-      to: 'mailto:dev@numxn.me',
-      className: 'text-sky-300 after:bg-sky-300',
-      name: 'dev@numxn.me',
-      icon: <FaRegEnvelope />
-    },
-    {
-      to: 'https://instagram.com/num4n_',
+      to: 'https://instagram.com/numsgram',
       className: 'text-purple-300 after:bg-purple-300',
-      name: 'num4n_',
+      name: 'numsgram',
       icon: <FaInstagram />
     },
     {
@@ -94,13 +84,9 @@ const Contact = () => {
   }
 
   return (
-    <Layout>
-      <Seo title='contact' />
-      <div className='grow gap-5 md:gap-4 mt-5 px-5 flex flex-col self-center w-full lg:w-2/3'>
-        <h2 className='text-xl mb-1'>
-          Have an exciting project in mind, or just wanna have a chat? Find me
-          below...
-        </h2>
+    <div>
+      <div className='grow gap-5 md:gap-4 mt-5 flex flex-col self-center w-full'>
+        <h2 className='text-xl'>Find me below...</h2>
         <Fade duration={1500} cascade top>
           <div className='font-semibold flex gap-6 gap-y-2 flex-wrap text-base'>
             {links.map(link => (
@@ -108,7 +94,7 @@ const Contact = () => {
                 <CustomLink
                   target={'_blank'}
                   to={link.to}
-                  className={`${link.className} flex gap-2 items-center w-fit`}
+                  className={`${link.className} font-normal flex gap-2 items-center w-fit`}
                 >
                   {link.icon}
                   {link.name}
@@ -120,8 +106,9 @@ const Contact = () => {
 
         <Fade delay={700}>
           <form
-            className={`${(sending || sent) &&
-              'pointer-events-none'} relative transition-opacity w-full shadow-2xl mt-3 mb-6 bg-gray-800 p-4 rounded-lg  flex text-white flex-col gap-3 justify-start items-start`}
+            className={`${
+              (sending || sent) && 'pointer-events-none'
+            } relative transition-opacity w-full shadow-2xl mb-6 bg-gray-800 p-4 rounded-lg  flex text-white flex-col gap-3 justify-start items-start`}
             onSubmit={sendMessage}
             // onChange={handleChange}
           >
@@ -218,13 +205,8 @@ const Contact = () => {
             </div>
           </form>
         </Fade>
-
-        <div className='mt-auto flex justify-between'>
-          <ArrowBtn dir={'left'} to='/projects' />
-          <ArrowBtn dir={'right'} to='/about' />
-        </div>
       </div>
-    </Layout>
+    </div>
   )
 }
 
