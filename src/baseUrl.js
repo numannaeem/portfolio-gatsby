@@ -1,1 +1,1 @@
-export default process.env.NODE_ENV === 'production' ? 'https://numxn.me' : 'http://localhost:8000'
+export default process.env.NODE_ENV === 'production' ? 'https://numxn.netlify.app' : 'http://localhost:8000'
